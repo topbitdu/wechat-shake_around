@@ -1,4 +1,4 @@
-require "wechat/shake_around/version"
+require 'wechat/shake_around/version'
 
 module Wechat
   module ShakeAround
