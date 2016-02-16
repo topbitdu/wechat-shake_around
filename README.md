@@ -4,7 +4,7 @@
 [![Gem Version](https://badge.fury.io/rb/wechat-shake_around.svg)](https://badge.fury.io/rb/wechat-shake_around)
 
 The Wechat Shake Around Library is a code base to call the Wechat Shake Around APIs.
-微信摇周边库用于调用微信摇周边API。
+微信摇周边库用于调用[微信摇周边API](http://mp.weixin.qq.com/wiki/19/9fe9fdbb50fee9f9660438c551142ccf.html)。
 
 ## Installation
 
@@ -24,7 +24,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+response = ::Wechat::ShakeAround::Shaking.load access_token, params[:ticket]
+if response.present? && 0==response['errcode']
+  page_id = response['page_id']
+  open_id = response['openid']
+  poi_id  = response['poi_id']
+  beacon  = response['beacon_info']
+  beacon_distance = beacon['distance']
+  beacon_uuid     = beacon['uuid']
+  beacon_major    = beacon['major']
+  beacon_minor    = beacon['minor']
+end
+```
 
 ## Development
 
