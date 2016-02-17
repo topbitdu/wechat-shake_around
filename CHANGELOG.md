@@ -9,3 +9,7 @@
 1. Material module
 2. Icon wrapper class
 3. License wrapper class
+
+## v0.3
+1. Page wrapper class
+2. Beacon Page Relation wrapper class
