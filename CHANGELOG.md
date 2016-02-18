@@ -13,3 +13,7 @@
 ## v0.3
 1. Page wrapper class
 2. Beacon Page Relation wrapper class
+
+## v0.4
+1. Page Report wrapper class
+2. Page Daily Report wrapper class
