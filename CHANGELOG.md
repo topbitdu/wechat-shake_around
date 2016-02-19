@@ -17,3 +17,7 @@
 ## v0.4
 1. Page Report wrapper class
 2. Page Daily Report wrapper class
+
+## v0.5
+1. Group wrapper class
+2. Device Group Relation wrapper class
