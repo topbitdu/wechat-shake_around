@@ -21,3 +21,7 @@
 ## v0.5
 1. Group wrapper class
 2. Device Group Relation wrapper class
+
+## v0.6
+1. Device Report wrapper class
+2. Device Daily Report wrapper class
