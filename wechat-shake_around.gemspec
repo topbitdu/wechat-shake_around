@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = [ 'topbit.du@gmail.com' ]
 
   spec.summary       = %q{Wechat Shake Around Library 微信摇周边库}
-  spec.description   = %q{The Wechat Shake Around Library is a code base to handle the shaking around API calls. 微信摇周边库封装了微信摇周边API的调用。}
+  spec.description   = %q{Wechat Shake Around Library is a wrapper for calling the Shake Around APIs. 微信摇周边库封装了微信摇周边API的调用。}
   spec.homepage      = 'https://github.com/topbitdu/wechat-shake_around'
   spec.license       = 'MIT'
 

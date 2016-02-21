@@ -1,5 +1,5 @@
 module Wechat
   module ShakeAround
-    VERSION = '0.6'.freeze
+    VERSION = '0.7'.freeze
   end
 end

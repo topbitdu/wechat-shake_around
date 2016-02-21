@@ -25,3 +25,6 @@
 ## v0.6
 1. Device Report wrapper class
 2. Device Daily Report wrapper class
+
+## v0.7
+1. Apply wrapper class
