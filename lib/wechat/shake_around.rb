@@ -20,6 +20,10 @@ require 'wechat/shake_around/device_group_relation'
 require 'wechat/shake_around/device_report'
 require 'wechat/shake_around/device_daily_report'
 
+require 'wechat/shake_around/apply'
+
+require 'wechat/shake_around/beacon_poi_relation'
+
 module Wechat
   module ShakeAround
   end

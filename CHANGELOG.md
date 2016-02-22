@@ -28,3 +28,6 @@
 
 ## v0.7
 1. Apply wrapper class
+
+## v0.8
+2. Beacon PoI Relation wrapper class
