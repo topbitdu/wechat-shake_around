@@ -4,16 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'wechat/shake_around/version'
 
 Gem::Specification.new do |spec|
-
-  spec.name          = 'wechat-shake_around'
-  spec.version       = Wechat::ShakeAround::VERSION
-  spec.authors       = [ 'Topbit Du' ]
-  spec.email         = [ 'topbit.du@gmail.com' ]
-
-  spec.summary       = %q{Wechat Shake Around Library 微信摇周边库}
-  spec.description   = %q{Wechat Shake Around Library is a wrapper for calling the Shake Around APIs. 微信摇周边库封装了微信摇周边API的调用。}
-  spec.homepage      = 'https://github.com/topbitdu/wechat-shake_around'
-  spec.license       = 'MIT'
+  spec.name        = 'wechat-shake_around'
+  spec.version     = Wechat::ShakeAround::VERSION
+  spec.authors     = [ 'Topbit Du' ]
+  spec.email       = [ 'topbit.du@gmail.com' ]
+  spec.summary     = 'Wechat Shake Around Library 微信摇周边库'
+  spec.description = 'Wechat Shake Around Library is a wrapper for calling the Shake Around APIs. 微信摇周边库封装了微信摇周边API的调用。'
+  spec.homepage    = 'https://github.com/topbitdu/wechat-shake_around'
+  spec.license     = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
