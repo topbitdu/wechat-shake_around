@@ -24,6 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
+### Handle the Callback of Shaking 处理摇周边行为的回调
 [Get Beacon & PoI & Page & Shaker 获取摇周边的设备及用户信息](http://mp.weixin.qq.com/wiki/3/34904a5db3d0ec7bb5306335b8da1faf.html) 
 ```ruby
 response = Wechat::ShakeAround::Shaking.load access_token, params[:ticket]
@@ -39,6 +40,7 @@ if response.present? && 0==response['errcode']
 end
 ```
 
+### Apply the Device IDs 申请Beacon设备ID
 [Apply Beacon Device IDs 申请设备ID](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E7.94.B3.E8.AF.B7.E8.AE.BE.E5.A4.87ID)
 ```ruby
 quantity = 500
@@ -68,6 +70,7 @@ else
 end
 ```
 
+### Manage the Beacon Devices 管理Beacon设备信息
 [Get Beacon information by Batch 查询设备列表](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87.E5.88.97.E8.A1.A8)
 ```ruby
 offset   = 40
@@ -118,6 +121,22 @@ device_id = { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }
 response  = Wechat::ShakeAround::Beacon.update access_token, device_id, comment
 if response.present? && 0==response['errcode']
   # Do something more...
+else
+  # Show response['errmsg']
+end
+```
+
+### Manage the Beacon Device Groups 管理Beacon设备分组
+[Get Devices by Batch 查询分组列表](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E5.88.97.E8.A1.A8)
+```ruby
+response = Wechat::ShakeAround::Group.index access_token, 0, 1000
+if response.present? && 0==response['errcode']
+  # Do something more...
+  total_count = response['data']['total_count']
+  response['data']['groups'].each do |group|
+    group_id   = group['group_id']
+    group_name = group['group_name']
+  end
 else
   # Show response['errmsg']
 end
