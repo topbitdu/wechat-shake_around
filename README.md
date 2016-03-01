@@ -131,11 +131,30 @@ end
 ```ruby
 response = Wechat::ShakeAround::Group.index access_token, 0, 1000
 if response.present? && 0==response['errcode']
-  # Do something more...
   total_count = response['data']['total_count']
   response['data']['groups'].each do |group|
     group_id   = group['group_id']
     group_name = group['group_name']
+  end
+else
+  # Show response['errmsg']
+end
+```
+
+[Get Device per ID 查询分组详情](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E8.AF.A6.E6.83.85)
+```ruby
+response = Wechat::ShakeAround::Group.load access_token, group_id, 0, 1000
+if response.present? && 0==response['errcode']
+  group_id    = response['data']['group_id']
+  group_name  = response['data']['group_name']
+  total_count = response['data']['total_count']
+  response['data']['devices'].each do |device|
+    device_id = device['device_id']
+    uuid      = device['uuid']
+    major_id  = device['major_id']
+    minor_id  = device['minor_id']
+    comment   = device['comment']
+    poi_id    = device['poi_id']
   end
 else
   # Show response['errmsg']
