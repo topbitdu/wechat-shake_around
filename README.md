@@ -127,7 +127,7 @@ end
 ```
 
 ### Manage the Beacon Device Groups 管理Beacon设备分组
-[Get Devices by Batch 查询分组列表](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E5.88.97.E8.A1.A8)
+[Get Groups by Batch 查询分组列表](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E5.88.97.E8.A1.A8)
 ```ruby
 response = Wechat::ShakeAround::Group.index access_token, 0, 1000
 if response.present? && 0==response['errcode']
@@ -141,7 +141,7 @@ else
 end
 ```
 
-[Get Device per ID 查询分组详情](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E8.AF.A6.E6.83.85)
+[Get Group per ID 查询分组详情](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E8.AF.A6.E6.83.85)
 ```ruby
 response = Wechat::ShakeAround::Group.load access_token, group_id, 0, 1000
 if response.present? && 0==response['errcode']
@@ -156,6 +156,36 @@ if response.present? && 0==response['errcode']
     comment   = device['comment']
     poi_id    = device['poi_id']
   end
+else
+  # Show response['errmsg']
+end
+```
+
+[Delete Group 删除分组](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E5.88.A0.E9.99.A4.E5.88.86.E7.BB.84)
+```ruby
+response = Wechat::ShakeAround::Group.destroy access_token, group_id
+if response.present? && 0==response['errcode']
+  # Do something more
+else
+  # Show response['errmsg']
+end
+```
+
+[Update Group 编辑分组信息](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E7.BC.96.E8.BE.91.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF)
+```ruby
+response = Wechat::ShakeAround::Group.update access_token, group_id, name
+if response.present? && 0==response['errcode']
+  # Do something more
+else
+  # Show response['errmsg']
+end
+```
+
+[Create Group 新增分组](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.96.B0.E5.A2.9E.E5.88.86.E7.BB.84)
+```ruby
+response = Wechat::ShakeAround::Group.create access_token, name
+if response.present? && 0==response['errcode']
+  # Do something more
 else
   # Show response['errmsg']
 end
