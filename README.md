@@ -191,6 +191,27 @@ else
 end
 ```
 
+### Manage the Beacon Device Group Relations 管理Beacon设备分组关系
+[Create Device Group Relation 新增设备分组关联](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.B7.BB.E5.8A.A0.E8.AE.BE.E5.A4.87.E5.88.B0.E5.88.86.E7.BB.84)
+```ruby
+response = Wechat::ShakeAround::DeviceGroupRelation.create access_token, device_id, group_id
+if response.present? && 0==response['errcode']
+  # Do something more
+else
+  # Show response['errmsg']
+end
+```
+
+[Destroy Device Group Relation 删除设备分组关联](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E4.BB.8E.E5.88.86.E7.BB.84.E4.B8.AD.E7.A7.BB.E9.99.A4.E8.AE.BE.E5.A4.87)
+```ruby
+response = Wechat::ShakeAround::DeviceGroupRelation.destroy access_token, device_id, group_id
+if response.present? && 0==response['errcode']
+  # Do something more
+else
+  # Show response['errmsg']
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
