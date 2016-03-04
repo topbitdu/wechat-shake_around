@@ -50,7 +50,8 @@ poi_id   = nil         # optional Some PoI ID
 response = Wechat::ShakeAround::Apply.create access_token, quantity, apply_reason, comment, poi_id
 if response.present? && 0==response['errcode']
   apply_id      = response['data']['apply_id']
-  audit_status  = response['data']['audit_status']  # 0：审核未通过、1：审核中、2：审核已通过
+  audit_status  = response['data']['audit_status']
+                  # 0：审核未通过、1：审核中、2：审核已通过
   audit_comment = response['data']['audit_comment']
 else
   # Show response['errmsg']
@@ -61,10 +62,13 @@ end
 ```ruby
 response = Wechat::ShakeAround::Apply.load access_token, apply_id
 if response.present? && 0==response['errcode']
-  apply_time    = response['data']['apply_time']    # 提交申请的时间戳
-  audit_status  = response['data']['audit_status']  # 0：审核未通过、1：审核中、2：审核已通过
+  apply_time    = response['data']['apply_time']
+                  # 提交申请的时间戳
+  audit_status  = response['data']['audit_status']
+                  # 0：审核未通过、1：审核中、2：审核已通过
   audit_comment = response['data']['audit_comment']
-  audit_time    = response['data']['audit_time']    # 确定审核结果的时间戳，若状态为审核中，则该时间值为0
+  audit_time    = response['data']['audit_time']
+                  # 确定审核结果的时间戳，若状态为审核中，则该时间值为0
 else
   # Show response['errmsg']
 end
@@ -84,9 +88,12 @@ if response.present? && 0==response['errcode']
     uuid             = device['uuid']
     major            = device['major']
     minor            = device['minor']
-    status           = device['status']           # 0：未激活，1：已激活
-    last_active_time = device['last_active_time'] # 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0 
-    poi_id           = device['poi_id']           # 设备关联的门店ID，关联门店后，在门店1KM的范围内有优先摇出信息的机会
+    status           = device['status']
+                       # 0：未激活，1：已激活
+    last_active_time = device['last_active_time']
+                       # 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0 
+    poi_id           = device['poi_id']
+                       # 设备关联的门店ID，关联门店后，在门店1KM的范围内有优先摇出信息的机会
   end
 else
   # Show response['errmsg']
@@ -105,9 +112,12 @@ if response.present? && 0==response['errcode']
     uuid             = device['uuid']
     major            = device['major']
     minor            = device['minor']
-    status           = device['status']           # 0：未激活，1：已激活
-    last_active_time = device['last_active_time'] # 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0 
-    poi_id           = device['poi_id']           # 设备关联的门店ID，关联门店后，在门店1KM的范围内有优先摇出信息的机会
+    status           = device['status']
+                       # 0：未激活，1：已激活
+    last_active_time = device['last_active_time']
+                       # 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0 
+    poi_id           = device['poi_id']
+                       # 设备关联的门店ID，关联门店后，在门店1KM的范围内有优先摇出信息的机会
   end
 else
   # Show response['errmsg']
@@ -129,7 +139,7 @@ end
 ### Manage the Beacon Device Groups 管理Beacon设备分组
 [Get Groups by Batch 查询分组列表](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E5.88.97.E8.A1.A8)
 ```ruby
-response = Wechat::ShakeAround::Group.index access_token, 0, 1000
+response = Wechat::ShakeAround::Group.index access_token, offset, limit
 if response.present? && 0==response['errcode']
   total_count = response['data']['total_count']
   response['data']['groups'].each do |group|
@@ -143,7 +153,7 @@ end
 
 [Get Group per ID 查询分组详情](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E8.AF.A6.E6.83.85)
 ```ruby
-response = Wechat::ShakeAround::Group.load access_token, group_id, 0, 1000
+response = Wechat::ShakeAround::Group.load access_token, group_id, offset, limit
 if response.present? && 0==response['errcode']
   group_id    = response['data']['group_id']
   group_name  = response['data']['group_name']
@@ -207,6 +217,41 @@ end
 response = Wechat::ShakeAround::DeviceGroupRelation.destroy access_token, device_id, group_id
 if response.present? && 0==response['errcode']
   # Do something more
+else
+  # Show response['errmsg']
+end
+```
+
+[Get Pages by Batch 获取页面列表](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.9F.A5.E8.AF.A2.E9.A1.B5.E9.9D.A2.E5.88.97.E8.A1.A8)
+```ruby
+response = Wechat::ShakeAround::Page.index access_token, offset, limit
+if response.present? && 0==response['errcode']
+  total_count = response['data']['total_count']
+  response['data']['pages'].each do |page|
+    comment     = page['comment']     # 页面的备注信息
+    description = page['description'] # 在摇一摇页面展示的副标题
+    icon_url    = page['icon_url']    # 在摇一摇页面展示的图片
+    page_id     = page['page_id']     # 摇周边页面唯一ID 
+    page_url    = page['page_url']    # 跳转链接
+    title       = page['title']       # 在摇一摇页面展示的主标题
+  end
+else
+  # Show response['errmsg']
+end
+```
+
+[Get Page per ID 获取页面详情](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.9F.A5.E8.AF.A2.E9.A1.B5.E9.9D.A2.E5.88.97.E8.A1.A8)
+```ruby
+response = Wechat::ShakeAround::Page.load access_token, page_id
+if response.present? && 0==response['errcode']
+  total_count = response['data']['total_count']
+  page        = response['data']['pages'][0]
+  comment     = page['comment']     # 页面的备注信息
+  description = page['description'] # 在摇一摇页面展示的副标题
+  icon_url    = page['icon_url']    # 在摇一摇页面展示的图片
+  page_id     = page['page_id']     # 摇周边页面唯一ID 
+  page_url    = page['page_url']    # 跳转链接
+  title       = page['title']       # 在摇一摇页面展示的主标题
 else
   # Show response['errmsg']
 end
