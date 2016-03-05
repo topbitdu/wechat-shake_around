@@ -257,6 +257,36 @@ else
 end
 ```
 
+[Destroy Page per ID 删除页面](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E5.88.A0.E9.99.A4.E9.A1.B5.E9.9D.A2)
+```ruby
+response = Wechat::ShakeAround::Page.destroy access_token, page_id
+if response.present? && 0==response['errcode']
+  # Do something more
+else
+  # Show response['errmsg']
+end
+```
+
+[Update Page per ID 编辑页面信息](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E7.BC.96.E8.BE.91.E9.A1.B5.E9.9D.A2.E4.BF.A1.E6.81.AF)
+```ruby
+response = Wechat::ShakeAround::Page.update access_token, page_id, title, description, comment, page_link, icon_link
+if response.present? && 0==response['errcode']
+  # Do something more
+else
+  # Show response['errmsg']
+end
+```
+
+[Create Page 新增页面](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.96.B0.E5.A2.9E.E9.A1.B5.E9.9D.A2)
+```ruby
+response = Wechat::ShakeAround::Page.update access_token, title, description, comment, page_link, icon_link
+if response.present? && 0==response['errcode']
+  page_id = response['data']['page_id']
+else
+  # Show response['errmsg']
+end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
