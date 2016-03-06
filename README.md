@@ -201,7 +201,7 @@ else
 end
 ```
 
-### Manage the Beacon Device Group Relations 管理Beacon设备分组关系
+### Manage Beacon Device Group Relations 管理Beacon设备分组关系
 [Create Device Group Relation 新增设备分组关联](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.B7.BB.E5.8A.A0.E8.AE.BE.E5.A4.87.E5.88.B0.E5.88.86.E7.BB.84)
 ```ruby
 response = Wechat::ShakeAround::DeviceGroupRelation.create access_token, device_id, group_id
@@ -222,6 +222,7 @@ else
 end
 ```
 
+### Manage Pages 管理页面
 [Get Pages by Batch 获取页面列表](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.9F.A5.E8.AF.A2.E9.A1.B5.E9.9D.A2.E5.88.97.E8.A1.A8)
 ```ruby
 response = Wechat::ShakeAround::Page.index access_token, offset, limit
@@ -282,6 +283,18 @@ end
 response = Wechat::ShakeAround::Page.update access_token, title, description, comment, page_link, icon_link
 if response.present? && 0==response['errcode']
   page_id = response['data']['page_id']
+else
+  # Show response['errmsg']
+end
+```
+
+### Manage Beacon Device Page Relations 管理Beacon设备页面关系
+[Destroy Beacon Page Relation 删除Beacon页面关系](http://mp.weixin.qq.com/wiki/12/c8120214ec0ba08af5dfcc0da1a11400.html)
+device_id 可以是整数或者Hash结构：{ uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }。
+```ruby
+response = Wechat::ShakeAround::BeaconPageRelation.destroy access_token, device_id, page_id
+if response.present? && 0==response['errcode']
+  # Do something more
 else
   # Show response['errmsg']
 end
