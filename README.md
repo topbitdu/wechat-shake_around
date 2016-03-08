@@ -300,6 +300,16 @@ else
 end
 ```
 
+[Create Beacon Page Relation 创建Beacon页面关系](http://mp.weixin.qq.com/wiki/12/c8120214ec0ba08af5dfcc0da1a11400.html)
+device_id 可以是整数或者Hash结构：{ uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }。
+```ruby
+response = Wechat::ShakeAround::BeaconPageRelation.create access_token, device_id, page_id
+if response.present? && 0==response['errcode']
+  # Do something more
+else
+  # Show response['errmsg']
+end
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
