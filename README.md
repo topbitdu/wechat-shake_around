@@ -24,6 +24,8 @@ Or install it yourself as:
 
 ## Usage
 
+
+
 ### Handle the Callback of Shaking 处理摇周边行为的回调
 [Get Beacon & PoI & Page & Shaker 获取摇周边的设备及用户信息](http://mp.weixin.qq.com/wiki/3/34904a5db3d0ec7bb5306335b8da1faf.html) 
 ```ruby
@@ -39,6 +41,8 @@ if response.present? && 0==response['errcode']
   beacon_minor    = beacon['minor']
 end
 ```
+
+
 
 ### Apply the Device IDs 申请Beacon设备ID
 [Apply Beacon Device IDs 申请设备ID](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E7.94.B3.E8.AF.B7.E8.AE.BE.E5.A4.87ID)
@@ -73,6 +77,8 @@ else
   # Show response['errmsg']
 end
 ```
+
+
 
 ### Manage the Beacon Devices 管理Beacon设备信息
 [Get Beacon information by Batch 查询设备列表](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87.E5.88.97.E8.A1.A8)
@@ -135,6 +141,8 @@ else
   # Show response['errmsg']
 end
 ```
+
+
 
 ### Manage the Beacon Device Groups 管理Beacon设备分组
 [Get Groups by Batch 查询分组列表](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E5.88.97.E8.A1.A8)
@@ -201,6 +209,8 @@ else
 end
 ```
 
+
+
 ### Manage Beacon Device Group Relations 管理Beacon设备分组关系
 [Create Device Group Relation 新增设备分组关联](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.B7.BB.E5.8A.A0.E8.AE.BE.E5.A4.87.E5.88.B0.E5.88.86.E7.BB.84)
 ```ruby
@@ -221,6 +231,8 @@ else
   # Show response['errmsg']
 end
 ```
+
+
 
 ### Manage Pages 管理页面
 [Get Pages by Batch 获取页面列表](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.9F.A5.E8.AF.A2.E9.A1.B5.E9.9D.A2.E5.88.97.E8.A1.A8)
@@ -288,6 +300,8 @@ else
 end
 ```
 
+
+
 ### Manage Beacon Device Page Relations 管理Beacon设备页面关系
 [Destroy Beacon Page Relation 删除Beacon页面关系](http://mp.weixin.qq.com/wiki/12/c8120214ec0ba08af5dfcc0da1a11400.html)
 device_id 可以是整数或者Hash结构：{ uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }。
@@ -309,6 +323,21 @@ if response.present? && 0==response['errcode']
 else
   # Show response['errmsg']
 end
+
+
+
+### Manage Beacon PoI Relation 管理Beacon场地关系
+[Create Beacon PoI Relation 创建Beacon场地关系](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E9.85.8D.E7.BD.AE.E8.AE.BE.E5.A4.87.E4.B8.8E.E9.97.A8.E5.BA.97.E7.9A.84.E5.85.B3.E8.81.94.E5.85.B3.E7.B3.BB)
+device_id 可以是整数或者Hash结构：{ uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }。
+```ruby
+response = Wechat::ShakeAround::BeaconPoiRelation.create access_token, device_id, poi_id
+if response.present? && 0==response['errcode']
+  # Do something more
+else
+  # Show response['errmsg']
+end
+
+
 
 ## Development
 
