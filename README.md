@@ -323,7 +323,7 @@ if response.present? && 0==response['errcode']
 else
   # Show response['errmsg']
 end
-
+```
 
 
 ### Manage Beacon PoI Relation 管理Beacon场地关系
@@ -336,6 +336,33 @@ if response.present? && 0==response['errcode']
 else
   # Show response['errmsg']
 end
+```
+
+
+
+### Beacon Device Report Beacon设备报表
+[Query Beacon Device Stats. Data by Batch 批量查询设备统计数据接口](http://mp.weixin.qq.com/wiki/0/8a24bcacad40fe7ee98d1573cb8a6764.html#.E6.89.B9.E9.87.8F.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87.E7.BB.9F.E8.AE.A1.E6.95.B0.E6.8D.AE.E6.8E.A5.E5.8F.A3)
+date是以秒为单位的整数。page_index从1开始。
+```ruby
+response = Wechat::ShakeAround::DeviceReport.index access_token, date, page_index
+if response.present? && 0==response['errcode']
+  date        = response['date']
+  total_count = response['total_count']
+  page_index  = response['page_index']
+  response['data']['devices'].each do |device|
+    device_id = device['device_id']
+    major     = device['major']
+    minor     = device['minor']
+    uuid      = device['uuid']
+    shake_pv  = device['shake_pv']
+    shake_uv  = device['shake_uv']
+    click_pv  = device['click_pv']
+    click_uv  = device['click_uv']
+  end
+else
+  # Show response['errmsg']
+end
+```
 
 
 
