@@ -108,7 +108,7 @@ end
 
 [Get Beacon information 查询设备](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87.E5.88.97.E8.A1.A8)
 ```ruby
-device_id = { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }
+device_id = { uuid: UUID, major: MAJOR, minor: MINOR }
 # or device_id = <INTEGER>
 response  = Wechat::ShakeAround::Beacon.load access_token, device_id
 if response.present? && 0==response['errcode']
@@ -304,7 +304,7 @@ end
 
 ### Manage Beacon Device Page Relations 管理Beacon设备页面关系
 [Destroy Beacon Page Relation 删除Beacon页面关系](http://mp.weixin.qq.com/wiki/12/c8120214ec0ba08af5dfcc0da1a11400.html)
-device_id 可以是整数或者Hash结构：{ uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }。
+device_id 可以是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
 response = Wechat::ShakeAround::BeaconPageRelation.destroy access_token, device_id, page_id
 if response.present? && 0==response['errcode']
@@ -315,7 +315,7 @@ end
 ```
 
 [Create Beacon Page Relation 创建Beacon页面关系](http://mp.weixin.qq.com/wiki/12/c8120214ec0ba08af5dfcc0da1a11400.html)
-device_id 可以是整数或者Hash结构：{ uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }。
+device_id 可以是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
 response = Wechat::ShakeAround::BeaconPageRelation.create access_token, device_id, page_id
 if response.present? && 0==response['errcode']
@@ -328,7 +328,7 @@ end
 
 ### Manage Beacon PoI Relation 管理Beacon场地关系
 [Create Beacon PoI Relation 创建Beacon场地关系](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E9.85.8D.E7.BD.AE.E8.AE.BE.E5.A4.87.E4.B8.8E.E9.97.A8.E5.BA.97.E7.9A.84.E5.85.B3.E8.81.94.E5.85.B3.E7.B3.BB)
-device_id 可以是整数或者Hash结构：{ uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }。
+device_id 可以是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
 response = Wechat::ShakeAround::BeaconPoiRelation.create access_token, device_id, poi_id
 if response.present? && 0==response['errcode']
@@ -358,6 +358,28 @@ if response.present? && 0==response['errcode']
     shake_uv  = device['shake_uv']
     click_pv  = device['click_pv']
     click_uv  = device['click_uv']
+  end
+else
+  # Show response['errmsg']
+end
+```
+
+
+
+### Beacon Device Daily Report Beacon设备每日报表
+[Query Beacon Device Stats. Data by Date 以设备为维度的数据统计接口](http://mp.weixin.qq.com/wiki/0/8a24bcacad40fe7ee98d1573cb8a6764.html#.E4.BB.A5.E8.AE.BE.E5.A4.87.E4.B8.BA.E7.BB.B4.E5.BA.A6.E7.9A.84.E6.95.B0.E6.8D.AE.E7.BB.9F.E8.AE.A1.E6.8E.A5.E5.8F.A3)
+device_id 可以是整数或者Hash结构： { uuid: UUID, major: MAJOR, minor: MINOR }。
+date_range 是字符串范围，形式如： 'yyyy-mm-dd'..'yyyy-mm-dd'。
+```ruby
+response = Wechat::ShakeAround::DeviceDailyReport.index access_token, device_id, date_range
+if response.present? && 0==response['errcode']
+  response['data'].each do |item|
+    ftime     = item['ftime']
+    # 当天0点对应的时间戳
+    shake_pv  = item['shake_pv']
+    shake_uv  = item['shake_uv']
+    click_pv  = item['click_pv']
+    click_uv  = item['click_uv']
   end
 else
   # Show response['errmsg']
