@@ -388,6 +388,29 @@ end
 
 
 
+### Page Report 页面报表
+[Query Page Stats. Data by Batch 批量查询页面统计数据接口](http://mp.weixin.qq.com/wiki/0/8a24bcacad40fe7ee98d1573cb8a6764.html#.E6.89.B9.E9.87.8F.E6.9F.A5.E8.AF.A2.E9.A1.B5.E9.9D.A2.E7.BB.9F.E8.AE.A1.E6.95.B0.E6.8D.AE.E6.8E.A5.E5.8F.A3)
+date是以秒为单位的整数。page_index从1开始。
+```ruby
+response = Wechat::ShakeAround::PageReport.index access_token, date, page_index
+if response.present? && 0==response['errcode']
+  date        = response['date']
+  total_count = response['total_count']
+  page_index  = response['page_index']
+  response['data']['pages'].each do |page|
+    page_id  = page['page_id']
+    shake_pv = page['shake_pv']
+    shake_uv = page['shake_uv']
+    click_pv = page['click_pv']
+    click_uv = page['click_uv']
+  end
+else
+  # Show response['errmsg']
+end
+```
+
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
