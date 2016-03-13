@@ -374,7 +374,7 @@ date_range 是字符串范围，形式如： 'yyyy-mm-dd'..'yyyy-mm-dd'。
 response = Wechat::ShakeAround::DeviceDailyReport.index access_token, device_id, date_range
 if response.present? && 0==response['errcode']
   response['data'].each do |item|
-    ftime     = item['ftime']
+    date      = item['ftime']
     # 当天0点对应的时间戳
     shake_pv  = item['shake_pv']
     shake_uv  = item['shake_uv']
@@ -403,6 +403,27 @@ if response.present? && 0==response['errcode']
     shake_uv = page['shake_uv']
     click_pv = page['click_pv']
     click_uv = page['click_uv']
+  end
+else
+  # Show response['errmsg']
+end
+```
+
+
+
+### Page Daily Report 页面每日报表
+[Query Page Stats. Data by Date 以页面为维度的数据统计接口](http://mp.weixin.qq.com/wiki/0/8a24bcacad40fe7ee98d1573cb8a6764.html#.E4.BB.A5.E9.A1.B5.E9.9D.A2.E4.B8.BA.E7.BB.B4.E5.BA.A6.E7.9A.84.E6.95.B0.E6.8D.AE.E7.BB.9F.E8.AE.A1.E6.8E.A5.E5.8F.A3)
+page_id 是从1开始的整数。 date_range 是字符串范围，形式如： 'yyyy-mm-dd'..'yyyy-mm-dd'。
+```ruby
+response = Wechat::ShakeAround::PageDailyReport.index access_token, page_id, date_range
+if response.present? && 0==response['errcode']
+  response['data'].each do |item|
+    date     = item['ftime']
+    # 当天0点对应的时间戳
+    shake_pv = item['shake_pv']
+    shake_uv = item['shake_uv']
+    click_pv = item['click_pv']
+    click_uv = item['click_uv']
   end
 else
   # Show response['errmsg']
