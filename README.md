@@ -27,7 +27,7 @@ Or install it yourself as:
 
 
 ### Handle the Callback of Shaking 处理摇周边行为的回调
-[Get Beacon & PoI & Page & Shaker 获取摇周边的设备及用户信息](http://mp.weixin.qq.com/wiki/3/34904a5db3d0ec7bb5306335b8da1faf.html) 
+[Get Beacon & PoI & Page & Shaker 获取摇周边的设备及用户信息](http://mp.weixin.qq.com/wiki/3/34904a5db3d0ec7bb5306335b8da1faf.html)
 ```ruby
 response = Wechat::ShakeAround::Shaking.load access_token, params[:ticket]
 if response.present? && 0==response['errcode']
@@ -39,6 +39,8 @@ if response.present? && 0==response['errcode']
   beacon_uuid     = beacon['uuid']
   beacon_major    = beacon['major']
   beacon_minor    = beacon['minor']
+else
+  # Show response['errmsg']
 end
 ```
 
@@ -107,9 +109,8 @@ end
 ```
 
 [Get Beacon information 查询设备](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87.E5.88.97.E8.A1.A8)
+device_id 是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
-device_id = { uuid: UUID, major: MAJOR, minor: MINOR }
-# or device_id = <INTEGER>
 response  = Wechat::ShakeAround::Beacon.load access_token, device_id
 if response.present? && 0==response['errcode']
   total_count = response['data']['total_count']
@@ -131,9 +132,8 @@ end
 ```
 
 [Update Beacon information 编辑设备信息](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E7.BC.96.E8.BE.91.E8.AE.BE.E5.A4.87.E4.BF.A1.E6.81.AF)
+device_id 是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
-device_id = { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }
-# or device_id = <INTEGER>
 response  = Wechat::ShakeAround::Beacon.update access_token, device_id, comment
 if response.present? && 0==response['errcode']
   # Do something more...
@@ -203,7 +203,7 @@ end
 ```ruby
 response = Wechat::ShakeAround::Group.create access_token, name
 if response.present? && 0==response['errcode']
-  # Do something more
+  group_id = response['data']['group_id']
 else
   # Show response['errmsg']
 end
@@ -292,7 +292,7 @@ end
 
 [Create Page 新增页面](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.96.B0.E5.A2.9E.E9.A1.B5.E9.9D.A2)
 ```ruby
-response = Wechat::ShakeAround::Page.update access_token, title, description, comment, page_link, icon_link
+response = Wechat::ShakeAround::Page.create access_token, title, description, comment, page_link, icon_link
 if response.present? && 0==response['errcode']
   page_id = response['data']['page_id']
 else
@@ -324,6 +324,7 @@ else
   # Show response['errmsg']
 end
 ```
+
 
 
 ### Manage Beacon PoI Relation 管理Beacon场地关系

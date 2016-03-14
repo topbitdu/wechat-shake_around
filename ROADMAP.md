@@ -31,3 +31,6 @@
 
 ## v0.8
 1. Beacon PoI Relation wrapper class
+
+## v0.9
+1. Registration wrapper class

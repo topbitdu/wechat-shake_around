@@ -28,7 +28,7 @@ class Wechat::ShakeAround::Shaking
   def self.load(access_token, ticket)
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/user/getshakeinfo?access_token=#{access_token}",
       {
-        ticket: ticket,
+        ticket:   ticket,
         need_poi: 1
       }
     message.body
