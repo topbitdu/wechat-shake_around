@@ -26,11 +26,42 @@ Or install it yourself as:
 
 
 
+### Registration 注册开通摇周边
+[Create Registration 申请开通功能](http://mp.weixin.qq.com/wiki/13/025f1d471dc999928340161c631c6635.html#.E7.94.B3.E8.AF.B7.E5.BC.80.E9.80.9A.E5.8A.9F.E8.83.BD)
+成功提交申请请求后，工作人员会在三个工作日内完成审核。
+若审核不通过，可以重新提交申请请求。
+若是审核中，请耐心等待工作人员审核，在审核中状态不能再提交申请请求。
+industry_id参考[所需资质文件](http://3gimg.qq.com/shake_nearby/Qualificationdocuments.html)
+```ruby
+response = Wechat::ShakeAround::Registration.create(access_token, name, phone_number, email, industry_id, qualification_links, apply_reason)
+if response.present? && 0==response['errcode'].to_i
+  # Do something more...
+else
+  # Show response['errmsg']
+end
+```
+
+[Check Registration Audit Status 查询审核状态](http://mp.weixin.qq.com/wiki/13/025f1d471dc999928340161c631c6635.html#.E6.9F.A5.E8.AF.A2.E5.AE.A1.E6.A0.B8.E7.8A.B6.E6.80.81)
+```ruby
+response = Wechat::ShakeAround::Registration.load(access_token)
+if response.present? && 0==response['errcode'].to_i
+  status        = response['data']
+  apply_time    = status['apply_time']    # 提交申请的时间戳
+  audit_comment = status['audit_comment'] # 审核备注，包括审核不通过的原因
+  audit_status  = status['audit_status']  # 0：审核未通过、1：审核中、2：审核已通过
+  audit_time    = status['audit_time']    # 确定审核结果的时间戳；若状态为审核中，则该时间值为0
+else
+  # Show response['errmsg']
+end
+```
+
+
+
 ### Handle the Callback of Shaking 处理摇周边行为的回调
 [Get Beacon & PoI & Page & Shaker 获取摇周边的设备及用户信息](http://mp.weixin.qq.com/wiki/3/34904a5db3d0ec7bb5306335b8da1faf.html)
 ```ruby
 response = Wechat::ShakeAround::Shaking.load access_token, params[:ticket]
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   page_id = response['page_id']
   open_id = response['openid']
   poi_id  = response['poi_id']
@@ -54,7 +85,7 @@ reason   = 'Test Purpose'
 comment  = 'Some Mall' # optional
 poi_id   = nil         # optional Some PoI ID
 response = Wechat::ShakeAround::Apply.create access_token, quantity, apply_reason, comment, poi_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   apply_id      = response['data']['apply_id']
   audit_status  = response['data']['audit_status']
                   # 0：审核未通过、1：审核中、2：审核已通过
@@ -67,7 +98,7 @@ end
 [Query the Status of Application of Beacon Device IDs 查询设备ID申请审核状态](http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87ID.E7.94.B3.E8.AF.B7.E5.AE.A1.E6.A0.B8.E7.8A.B6.E6.80.81)
 ```ruby
 response = Wechat::ShakeAround::Apply.load access_token, apply_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   apply_time    = response['data']['apply_time']
                   # 提交申请的时间戳
   audit_status  = response['data']['audit_status']
@@ -89,7 +120,7 @@ offset   = 40
 limit    = 20
 apply_id = nil
 response = Wechat::ShakeAround::Beacon.index access_token, offset, limit, apply_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   total_count = response['data']['total_count']
   response['data']['devices'].each do |device|
     device_id        = device['device_id']
@@ -112,7 +143,7 @@ end
 device_id 是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
 response  = Wechat::ShakeAround::Beacon.load access_token, device_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   total_count = response['data']['total_count']
   response['data']['devices'].each do |device|
     device_id        = device['device_id']
@@ -135,7 +166,7 @@ end
 device_id 是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
 response  = Wechat::ShakeAround::Beacon.update access_token, device_id, comment
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more...
 else
   # Show response['errmsg']
@@ -148,7 +179,7 @@ end
 [Get Groups by Batch 查询分组列表](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E5.88.97.E8.A1.A8)
 ```ruby
 response = Wechat::ShakeAround::Group.index access_token, offset, limit
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   total_count = response['data']['total_count']
   response['data']['groups'].each do |group|
     group_id   = group['group_id']
@@ -162,7 +193,7 @@ end
 [Get Group per ID 查询分组详情](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E8.AF.A6.E6.83.85)
 ```ruby
 response = Wechat::ShakeAround::Group.load access_token, group_id, offset, limit
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   group_id    = response['data']['group_id']
   group_name  = response['data']['group_name']
   total_count = response['data']['total_count']
@@ -182,7 +213,7 @@ end
 [Delete Group 删除分组](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E5.88.A0.E9.99.A4.E5.88.86.E7.BB.84)
 ```ruby
 response = Wechat::ShakeAround::Group.destroy access_token, group_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -192,7 +223,7 @@ end
 [Update Group 编辑分组信息](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E7.BC.96.E8.BE.91.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF)
 ```ruby
 response = Wechat::ShakeAround::Group.update access_token, group_id, name
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -202,7 +233,7 @@ end
 [Create Group 新增分组](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.96.B0.E5.A2.9E.E5.88.86.E7.BB.84)
 ```ruby
 response = Wechat::ShakeAround::Group.create access_token, name
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   group_id = response['data']['group_id']
 else
   # Show response['errmsg']
@@ -215,7 +246,7 @@ end
 [Create Device Group Relation 新增设备分组关联](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.B7.BB.E5.8A.A0.E8.AE.BE.E5.A4.87.E5.88.B0.E5.88.86.E7.BB.84)
 ```ruby
 response = Wechat::ShakeAround::DeviceGroupRelation.create access_token, device_id, group_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -225,7 +256,7 @@ end
 [Destroy Device Group Relation 删除设备分组关联](http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E4.BB.8E.E5.88.86.E7.BB.84.E4.B8.AD.E7.A7.BB.E9.99.A4.E8.AE.BE.E5.A4.87)
 ```ruby
 response = Wechat::ShakeAround::DeviceGroupRelation.destroy access_token, device_id, group_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -238,7 +269,7 @@ end
 [Get Pages by Batch 获取页面列表](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.9F.A5.E8.AF.A2.E9.A1.B5.E9.9D.A2.E5.88.97.E8.A1.A8)
 ```ruby
 response = Wechat::ShakeAround::Page.index access_token, offset, limit
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   total_count = response['data']['total_count']
   response['data']['pages'].each do |page|
     comment     = page['comment']     # 页面的备注信息
@@ -256,7 +287,7 @@ end
 [Get Page per ID 获取页面详情](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.9F.A5.E8.AF.A2.E9.A1.B5.E9.9D.A2.E5.88.97.E8.A1.A8)
 ```ruby
 response = Wechat::ShakeAround::Page.load access_token, page_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   total_count = response['data']['total_count']
   page        = response['data']['pages'][0]
   comment     = page['comment']     # 页面的备注信息
@@ -273,7 +304,7 @@ end
 [Destroy Page per ID 删除页面](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E5.88.A0.E9.99.A4.E9.A1.B5.E9.9D.A2)
 ```ruby
 response = Wechat::ShakeAround::Page.destroy access_token, page_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -283,7 +314,7 @@ end
 [Update Page per ID 编辑页面信息](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E7.BC.96.E8.BE.91.E9.A1.B5.E9.9D.A2.E4.BF.A1.E6.81.AF)
 ```ruby
 response = Wechat::ShakeAround::Page.update access_token, page_id, title, description, comment, page_link, icon_link
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -293,7 +324,7 @@ end
 [Create Page 新增页面](http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E6.96.B0.E5.A2.9E.E9.A1.B5.E9.9D.A2)
 ```ruby
 response = Wechat::ShakeAround::Page.create access_token, title, description, comment, page_link, icon_link
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   page_id = response['data']['page_id']
 else
   # Show response['errmsg']
@@ -307,7 +338,7 @@ end
 device_id 可以是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
 response = Wechat::ShakeAround::BeaconPageRelation.destroy access_token, device_id, page_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -318,7 +349,7 @@ end
 device_id 可以是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
 response = Wechat::ShakeAround::BeaconPageRelation.create access_token, device_id, page_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -332,7 +363,7 @@ end
 device_id 可以是整数或者Hash结构：{ uuid: UUID, major: MAJOR, minor: MINOR }。
 ```ruby
 response = Wechat::ShakeAround::BeaconPoiRelation.create access_token, device_id, poi_id
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   # Do something more
 else
   # Show response['errmsg']
@@ -346,7 +377,7 @@ end
 date是以秒为单位的整数。page_index从1开始。
 ```ruby
 response = Wechat::ShakeAround::DeviceReport.index access_token, date, page_index
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   date        = response['date']
   total_count = response['total_count']
   page_index  = response['page_index']
@@ -373,7 +404,7 @@ device_id 可以是整数或者Hash结构： { uuid: UUID, major: MAJOR, minor: 
 date_range 是字符串范围，形式如： 'yyyy-mm-dd'..'yyyy-mm-dd'。
 ```ruby
 response = Wechat::ShakeAround::DeviceDailyReport.index access_token, device_id, date_range
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   response['data'].each do |item|
     date      = item['ftime']
     # 当天0点对应的时间戳
@@ -394,7 +425,7 @@ end
 date是以秒为单位的整数。page_index从1开始。
 ```ruby
 response = Wechat::ShakeAround::PageReport.index access_token, date, page_index
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   date        = response['date']
   total_count = response['total_count']
   page_index  = response['page_index']
@@ -417,7 +448,7 @@ end
 page_id 是从1开始的整数。 date_range 是字符串范围，形式如： 'yyyy-mm-dd'..'yyyy-mm-dd'。
 ```ruby
 response = Wechat::ShakeAround::PageDailyReport.index access_token, page_id, date_range
-if response.present? && 0==response['errcode']
+if response.present? && 0==response['errcode'].to_i
   response['data'].each do |item|
     date     = item['ftime']
     # 当天0点对应的时间戳

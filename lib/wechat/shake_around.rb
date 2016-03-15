@@ -24,6 +24,8 @@ require 'wechat/shake_around/apply'
 
 require 'wechat/shake_around/beacon_poi_relation'
 
+require 'wechat/shake_around/registration'
+
 module Wechat
   module ShakeAround
   end

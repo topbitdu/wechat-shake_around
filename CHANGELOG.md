@@ -30,4 +30,7 @@
 1. Apply wrapper class
 
 ## v0.8
-2. Beacon PoI Relation wrapper class
+1. Beacon PoI Relation wrapper class
+
+## v0.9
+1. Registration wrapper class
