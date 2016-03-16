@@ -57,6 +57,29 @@ end
 
 
 
+### Material 上传素材
+[Upload License 上传许可证素材](http://mp.weixin.qq.com/wiki/5/e997428269ff189d8f9a4b9e177be2d9.html)
+```ruby
+response = Wechat::ShakeAround::License.create(access_token, Pathname.new('var/ftp/license.jpg'))
+if response.present? && 0==response['errcode'].to_i
+  license_link = response['data']['pic_url']
+else
+  # Show response['errmsg']
+end
+```
+
+[Upload Icon 上传图标素材](http://mp.weixin.qq.com/wiki/5/e997428269ff189d8f9a4b9e177be2d9.html)
+```ruby
+response = Wechat::ShakeAround::Icon.create(access_token, Pathname.new('var/ftp/article-icon.jpg'))
+if response.present? && 0==response['errcode'].to_i
+  icon_link = response['data']['pic_url']
+else
+  # Show response['errmsg']
+end
+```
+
+
+
 ### Handle the Callback of Shaking 处理摇周边行为的回调
 [Get Beacon & PoI & Page & Shaker 获取摇周边的设备及用户信息](http://mp.weixin.qq.com/wiki/3/34904a5db3d0ec7bb5306335b8da1faf.html)
 ```ruby

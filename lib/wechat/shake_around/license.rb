@@ -8,7 +8,7 @@ class Wechat::ShakeAround::License
   #
   # Return hash format if success:
   # {
-  #   data:    { pic_url: <ICON_LINK> },
+  #   data:    { pic_url: <LICENSE_LINK> },
   #   errcode: 0,
   #   errmsg:  'success.'
   # }
