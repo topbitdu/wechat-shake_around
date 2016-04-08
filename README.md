@@ -6,9 +6,13 @@
 The Wechat Shake Around Library is a code base to call the Wechat Shake Around APIs.
 微信摇周边库用于调用[微信摇周边API](http://mp.weixin.qq.com/wiki/19/9fe9fdbb50fee9f9660438c551142ccf.html)。
 
+
+
 ## Recent Update
 Check out the [Road Map](ROADMAP.md) to find out what's the next.
 Check out the [Change Log](CHANGELOG.md) to find out what's new.
+
+
 
 ## Installation
 
@@ -25,6 +29,8 @@ And then execute:
 Or install it yourself as:
 
     $ gem install wechat-shake_around
+
+
 
 ## Usage
 
