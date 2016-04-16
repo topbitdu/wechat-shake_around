@@ -42,7 +42,7 @@ class Wechat::ShakeAround::Apply
   # quantity: 申请的设备ID的数量，单次新增设备超过500个，需走人工审核流程。
   # reason:   申请理由，不超过100个汉字或200个英文字母。
   # comment:  备注，不超过15个汉字或30个英文字母。
-  def self.create(access_token, quantity, reason, comment = nil, poi_id = nil)
+  def self.create(access_token, quantity, reason, comment: nil, poi_id: nil)
     options = { quantity: quantity, apply_reason: reason }
     options[:comment] = comment if comment.present?
     options[:poi_id]  = poi_id  if poi_id.present?
