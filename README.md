@@ -117,7 +117,8 @@ quantity = 500
 reason   = 'Test Purpose'
 comment  = 'Some Mall' # optional
 poi_id   = nil         # optional Some PoI ID
-response = Wechat::ShakeAround::Apply.create access_token, quantity, apply_reason, comment, poi_id
+response = Wechat::ShakeAround::Apply.create access_token, quantity, apply_reason, comment: comment, poi_id: poi_id
+# or for short: Wechat::ShakeAround::Apply.create access_token, quantity, apply_reason
 if response.present? && 0==response['errcode'].to_i
   apply_id      = response['data']['apply_id']
   audit_status  = response['data']['audit_status']
