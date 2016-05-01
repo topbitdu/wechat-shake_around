@@ -34,3 +34,6 @@
 
 ## v0.9
 1. Registration wrapper class
+
+## v1.0
+1. Improved the wrapper classes to use Keywords Argument
