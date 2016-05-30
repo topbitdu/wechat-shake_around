@@ -29,7 +29,7 @@ class Wechat::ShakeAround::Beacon
   #   errcode: 0,
   #   errmsg:  'success.'
   # }
-  def self.index(access_token, offset, limit, apply_id = nil)
+  def self.index(access_token, offset, limit, apply_id: nil)
     options = { begin: offset, count: limit }
     if apply_id.present?
       options[:apply_id] = apply_id
