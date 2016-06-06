@@ -27,7 +27,7 @@ class Wechat::ShakeAround::Group
   #
   # offset: 分组列表的起始索引值
   # limit: 待查询的分组数量，不能超过1000个
-  def self.index(access_token, offset = 0, limit = 1000)
+  def self.index(access_token, offset: 0, limit: 1000)
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/getlist?access_token=#{access_token}",
       {
         begin: offset.to_i,
@@ -66,7 +66,7 @@ class Wechat::ShakeAround::Group
   # group_id: 分组唯一标识，全局唯一
   # offset: 分组里设备的起始索引值
   # limit: 待查询的分组里设备的数量，不能超过1000个
-  def self.load(access_token, group_id, offset = 0, limit = 1000)
+  def self.load(access_token, group_id, offset: 0, limit: 1000)
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/getdetail?access_token=#{access_token}",
       {
         group_id: group_id.to_i,
