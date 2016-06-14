@@ -32,7 +32,7 @@ class Wechat::ShakeAround::PageReport
   #
   # date:       指定查询日期时间戳，单位为秒。
   # page_index: 指定查询的结果页序号；返回结果按摇周边人数降序排序，每50条记录为一页 ，从1开始。
-  def self.index(access_token, date, page_index = 1)
+  def self.index(access_token, date, page_index: 1)
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/statistics/pagelist?access_token=#{access_token}",
       {
         date:       normalize_date(date), 
