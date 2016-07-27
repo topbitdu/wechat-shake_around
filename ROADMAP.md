@@ -36,4 +36,5 @@
 1. Registration wrapper class
 
 ## v1.0
-1. Improved the wrapper classes to use Keywords Argument
+1. Improve the wrapper classes to support the Keyword Arguments
+2. Improve the wrapper classes for argument validation
