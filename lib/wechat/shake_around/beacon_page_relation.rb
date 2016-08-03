@@ -20,6 +20,8 @@ class Wechat::ShakeAround::BeaconPageRelation
   # append 新增操作标志位，0为覆盖，1为新增
   def self.destroy(access_token, device_id, page_id)
 
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     device_identifier = normalize_device_id device_id
     page_ids          = normalize_page_ids  page_id
 
@@ -48,6 +50,8 @@ class Wechat::ShakeAround::BeaconPageRelation
   # bind 关联操作标志位，0为解除关联关系，1为建立关联关系
   # append 新增操作标志位，0为覆盖，1为新增
   def self.create(access_token, device_id, page_id)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     device_identifier = normalize_device_id device_id
     page_ids          = normalize_page_ids  page_id
