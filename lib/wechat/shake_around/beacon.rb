@@ -30,6 +30,9 @@ class Wechat::ShakeAround::Beacon
   #   errmsg:  'success.'
   # }
   def self.index(access_token, offset, limit, apply_id: nil)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     options = { begin: offset, count: limit }
     if apply_id.present?
       options[:apply_id] = apply_id
@@ -69,6 +72,9 @@ class Wechat::ShakeAround::Beacon
   #
   # device_id is an integer or a hash like { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }.
   def self.load(access_token, device_id)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     device_identifier = self.normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/search?access_token=#{access_token}",
       {
@@ -90,6 +96,9 @@ class Wechat::ShakeAround::Beacon
   #
   # device_id is an integer or a hash like { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }.
   def self.update(access_token, device_id, comment)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     device_identifier = self.normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/update?access_token=#{access_token}",
       {
