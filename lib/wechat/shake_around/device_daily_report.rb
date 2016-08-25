@@ -28,6 +28,8 @@ class Wechat::ShakeAround::DeviceDailyReport
   # date_range is a string range like 'yyyy-mm-dd'..'yyyy-mm-dd'.
   def self.index(access_token, device_id, date_range)
 
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     device_identifier = normalize_device_id device_id
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/statistics/device?access_token=#{access_token}",
