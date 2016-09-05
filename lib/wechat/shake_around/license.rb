@@ -15,6 +15,9 @@ class Wechat::ShakeAround::License
   #
   # media 图片完整路径。
   def self.create(access_token, media)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     upload access_token, media, 'license'
   end
 
