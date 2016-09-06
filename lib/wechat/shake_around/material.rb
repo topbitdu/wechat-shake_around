@@ -15,6 +15,9 @@ module Wechat::ShakeAround::Material
   # media 图片完整路径。
   # type 是icon或者license。
   def upload(access_token, media, type)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = nil
     File.open(media) do |io|
       message = ::HTTPClient.new.post "https://api.weixin.qq.com/shakearound/material/add?access_token=#{access_token}&type=#{type}", { media: io }
