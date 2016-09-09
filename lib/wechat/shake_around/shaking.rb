@@ -26,6 +26,9 @@ class Wechat::ShakeAround::Shaking
   #   errmsg:  'success.'
   # }
   def self.load(access_token, ticket)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/user/getshakeinfo?access_token=#{access_token}",
       {
         ticket:   ticket,
