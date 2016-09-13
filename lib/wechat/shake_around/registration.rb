@@ -24,6 +24,9 @@ class Wechat::ShakeAround::Registration
   # audit_status:  0：审核未通过、1：审核中、2：审核已通过
   # audit_time:    确定审核结果的时间戳；若状态为审核中，则该时间值为0
   def self.load(access_token)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.get "https://api.weixin.qq.com/shakearound/account/auditstatus?access_token=#{access_token}"
     message.body
   end
@@ -42,6 +45,9 @@ class Wechat::ShakeAround::Registration
   #   errmsg:  'success.'
   # }
   def self.create(access_token, name, phone_number, email, industry_id, qualification_links, apply_reason)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/account/register?access_token=#{access_token}",
       {
         name:                    name,
