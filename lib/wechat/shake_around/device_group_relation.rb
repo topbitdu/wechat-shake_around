@@ -16,6 +16,9 @@ class Wechat::ShakeAround::DeviceGroupRelation
   #
   # device_id is an integer or a hash like { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }.
   def self.destroy(access_token, device_id, group_id)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     device_identifier = normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/deletedevice?access_token=#{access_token}",
       {
@@ -38,6 +41,9 @@ class Wechat::ShakeAround::DeviceGroupRelation
   # device_id is an integer or a hash like { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }.
   # 每个分组能够持有的设备上限为10000，并且每次添加操作的添加上限为1000。
   def self.create(access_token, device_id, group_id)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     device_identifier = normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/adddevice?access_token=#{access_token}",
       {
