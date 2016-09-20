@@ -28,6 +28,9 @@ class Wechat::ShakeAround::Group
   # offset: 分组列表的起始索引值
   # limit: 待查询的分组数量，不能超过1000个
   def self.index(access_token, offset: 0, limit: 1000)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/getlist?access_token=#{access_token}",
       {
         begin: offset.to_i,
@@ -67,6 +70,9 @@ class Wechat::ShakeAround::Group
   # offset: 分组里设备的起始索引值
   # limit: 待查询的分组里设备的数量，不能超过1000个
   def self.load(access_token, group_id, offset: 0, limit: 1000)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/getdetail?access_token=#{access_token}",
       {
         group_id: group_id.to_i,
@@ -88,6 +94,9 @@ class Wechat::ShakeAround::Group
   #
   # group_id: 分组唯一标识，全局唯一
   def self.destroy(access_token, group_id)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/delete?access_token=#{access_token}", { group_id: group_id.to_i }
     message.body
   end
@@ -105,6 +114,9 @@ class Wechat::ShakeAround::Group
   # group_id: 分组唯一标识，全局唯一
   # name: 分组名称，不超过100汉字或200个英文字母
   def self.update(access_token, group_id, name)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/update?access_token=#{access_token}",
       {
         group_id:   group_id.to_i,
@@ -129,6 +141,9 @@ class Wechat::ShakeAround::Group
   #
   # name: 分组名称，不超过100汉字或200个英文字母
   def self.create(access_token, name)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/add?access_token=#{access_token}", { group_name: name }
     message.body
   end
