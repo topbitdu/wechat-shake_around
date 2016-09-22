@@ -29,6 +29,9 @@ class Wechat::ShakeAround::Page
   #   errmsg:      'success.'
   # }
   def self.index(access_token, offset, limit)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}",
       {
         type:  2, 
@@ -65,6 +68,9 @@ class Wechat::ShakeAround::Page
   #
   # page_id 可以是数字、整数或者它们的数组。
   def self.load(access_token, page_id)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}",
       {
         type:     1,
@@ -83,6 +89,9 @@ class Wechat::ShakeAround::Page
   #   errmsg:  'success.'
   # }
   def self.destroy(access_token, page_id)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/delete?access_token=#{access_token}", { page_id: page_id.to_i }
     message.body
   end
@@ -102,6 +111,9 @@ class Wechat::ShakeAround::Page
   # comment     页面的备注信息，不超过15个汉字或30个英文字母。
   # icon_link   在摇一摇页面展示的图片。图片需先上传至微信侧服务器，用“素材管理-上传图片素材”接口上传图片，返回的图片URL再配置在此处。 
   def self.update(access_token, page_id, title, description, comment, page_link, icon_link)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/update?access_token=#{access_token}",
       {
         page_id:     page_id.to_i,
@@ -129,6 +141,9 @@ class Wechat::ShakeAround::Page
   # comment     页面的备注信息，不超过15个汉字或30个英文字母。
   # icon_link   在摇一摇页面展示的图片。图片需先上传至微信侧服务器，用“素材管理-上传图片素材”接口上传图片，返回的图片URL再配置在此处。 
   def self.create(access_token, title, description, comment, page_link, icon_link)
+
+    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/add?access_token=#{access_token}",
       {
         title:       title,
