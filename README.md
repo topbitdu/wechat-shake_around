@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](http://opensource.org/licenses/MIT)
 [![Gem Version](https://badge.fury.io/rb/wechat-shake_around.svg)](https://badge.fury.io/rb/wechat-shake_around)
+[![Dependency Status](https://gemnasium.com/badges/github.com/topbitdu/wechat-shake_around.svg)](https://gemnasium.com/github.com/topbitdu/wechat-shake_around)
 
 The Wechat Shake Around Library is a code base to call the Wechat Shake Around APIs.
 微信摇周边库用于调用[微信摇周边API](http://mp.weixin.qq.com/wiki/19/9fe9fdbb50fee9f9660438c551142ccf.html)。
