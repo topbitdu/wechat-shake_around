@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::Beacon
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 查询设备列表
@@ -31,7 +32,7 @@ class Wechat::ShakeAround::Beacon
   # }
   def self.index(access_token, offset, limit, apply_id: nil)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     options = { begin: offset, count: limit }
     if apply_id.present?
