@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::Apply
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 查询设备ID申请审核状态
@@ -20,6 +21,8 @@ class Wechat::ShakeAround::Apply
   #   errmsg:  'success.'
   # }
   def self.load(access_token, apply_id)
+    assert_present! :access_token, access_token
+
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/applystatus?access_token=#{access_token}", { apply_id: apply_id.to_i }
     message.body
   end
