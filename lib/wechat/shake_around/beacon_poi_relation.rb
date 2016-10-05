@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::BeaconPoiRelation
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 配置设备与门店的关联关系
@@ -17,7 +18,7 @@ class Wechat::ShakeAround::BeaconPoiRelation
   # device_id is an integer or a hash like { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }.
   def self.create(access_token, device_id, poi_id)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     device_identifier = self.normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/bindlocation?access_token=#{access_token}",
