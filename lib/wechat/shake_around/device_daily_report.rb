@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::DeviceDailyReport
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 以设备为维度的数据统计接口
@@ -28,7 +29,7 @@ class Wechat::ShakeAround::DeviceDailyReport
   # date_range is a string range like 'yyyy-mm-dd'..'yyyy-mm-dd'.
   def self.index(access_token, device_id, date_range)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     device_identifier = normalize_device_id device_id
 
