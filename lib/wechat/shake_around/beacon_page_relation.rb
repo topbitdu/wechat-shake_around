@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::BeaconPageRelation
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 删除设备与页面的关联关系
@@ -20,7 +21,7 @@ class Wechat::ShakeAround::BeaconPageRelation
   # append 新增操作标志位，0为覆盖，1为新增
   def self.destroy(access_token, device_id, page_id)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     device_identifier = normalize_device_id device_id
     page_ids          = normalize_page_ids  page_id
