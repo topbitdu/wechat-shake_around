@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::DeviceGroupRelation
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 从分组中移除设备
@@ -17,7 +18,7 @@ class Wechat::ShakeAround::DeviceGroupRelation
   # device_id is an integer or a hash like { uuid: <UUID>, major: <MAJOR>, minor: <MINOR> }.
   def self.destroy(access_token, device_id, group_id)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     device_identifier = normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/deletedevice?access_token=#{access_token}",
