@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::PageDailyReport
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 以页面为维度的数据统计接口
@@ -28,7 +29,7 @@ class Wechat::ShakeAround::PageDailyReport
   # date_range is a string range like 'yyyy-mm-dd'..'yyyy-mm-dd'.
   def self.index(access_token, page_id, date_range)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/statistics/page?access_token=#{access_token}",
       {
