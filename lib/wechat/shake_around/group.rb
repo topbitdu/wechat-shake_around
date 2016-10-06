@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::Group
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 查询分组列表
@@ -29,7 +30,7 @@ class Wechat::ShakeAround::Group
   # limit: 待查询的分组数量，不能超过1000个
   def self.index(access_token, offset: 0, limit: 1000)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/getlist?access_token=#{access_token}",
       {
