@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::PageReport
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 批量查询页面统计数据接口
@@ -34,7 +35,7 @@ class Wechat::ShakeAround::PageReport
   # page_index: 指定查询的结果页序号；返回结果按摇周边人数降序排序，每50条记录为一页 ，从1开始。
   def self.index(access_token, date, page_index: 1)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/statistics/pagelist?access_token=#{access_token}",
       {
