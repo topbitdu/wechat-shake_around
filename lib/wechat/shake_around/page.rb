@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::Page
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 查询页面列表
@@ -30,7 +31,7 @@ class Wechat::ShakeAround::Page
   # }
   def self.index(access_token, offset, limit)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}",
       {
