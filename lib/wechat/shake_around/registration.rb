@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::Registration
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 查询审核状态
@@ -25,7 +26,7 @@ class Wechat::ShakeAround::Registration
   # audit_time:    确定审核结果的时间戳；若状态为审核中，则该时间值为0
   def self.load(access_token)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     message = ::JSONClient.new.get "https://api.weixin.qq.com/shakearound/account/auditstatus?access_token=#{access_token}"
     message.body
