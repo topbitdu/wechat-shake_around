@@ -2,6 +2,7 @@ require 'jsonclient'
 
 class Wechat::ShakeAround::Shaking
 
+  extend Wechat::Core::Common
   extend ::Wechat::ShakeAround::Common
 
   # 获取摇周边的设备及用户信息
@@ -27,7 +28,7 @@ class Wechat::ShakeAround::Shaking
   # }
   def self.load(access_token, ticket)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/user/getshakeinfo?access_token=#{access_token}",
       {
