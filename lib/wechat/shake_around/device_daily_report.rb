@@ -30,6 +30,7 @@ class Wechat::ShakeAround::DeviceDailyReport
   def self.index(access_token, device_id, date_range)
 
     assert_present! :access_token, access_token
+    assert_present! :device_id, device_id
 
     device_identifier = normalize_device_id device_id
 
