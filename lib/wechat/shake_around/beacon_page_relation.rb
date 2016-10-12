@@ -52,7 +52,8 @@ class Wechat::ShakeAround::BeaconPageRelation
   # append 新增操作标志位，0为覆盖，1为新增
   def self.create(access_token, device_id, page_id)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
+    #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     device_identifier = normalize_device_id device_id
     page_ids          = normalize_page_ids  page_id
