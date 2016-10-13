@@ -30,6 +30,7 @@ class Wechat::ShakeAround::PageDailyReport
   def self.index(access_token, page_id, date_range)
 
     assert_present! :access_token, access_token
+    assert_present! :page_id, page_id
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/statistics/page?access_token=#{access_token}",
       {
