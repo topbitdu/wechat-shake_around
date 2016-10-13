@@ -39,6 +39,7 @@ class Wechat::ShakeAround::DeviceReport
   def self.index(access_token, date, page_index = 1)
 
     assert_present! :access_token, access_token
+    assert_present! :date, date
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/statistics/devicelist?access_token=#{access_token}",
       {
