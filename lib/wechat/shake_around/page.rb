@@ -70,7 +70,8 @@ class Wechat::ShakeAround::Page
   # page_id 可以是数字、整数或者它们的数组。
   def self.load(access_token, page_id)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
+    #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}",
       {
