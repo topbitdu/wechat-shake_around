@@ -18,6 +18,7 @@ class Wechat::ShakeAround::Icon
   def self.create(access_token, media)
 
     assert_present! :access_token, access_token
+    assert_present! :media, media
 
     upload access_token, media, 'icon'
   end
