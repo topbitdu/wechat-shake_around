@@ -81,7 +81,6 @@ module Wechat::ShakeAround::Common
   def normalize_date(date)
     date = Date.parse date if date.is_a? String
     date.to_time.to_i
-    # date.to_datetime
   end
 
   def normalize_device_id(device_id)
