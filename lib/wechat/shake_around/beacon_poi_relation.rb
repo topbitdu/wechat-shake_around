@@ -20,6 +20,7 @@ class Wechat::ShakeAround::BeaconPoiRelation
 
     assert_present! :access_token, access_token
     assert_present! :device_id, device_id
+    assert_present! :poi_id, poi_id
 
     device_identifier = self.normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/bindlocation?access_token=#{access_token}",
