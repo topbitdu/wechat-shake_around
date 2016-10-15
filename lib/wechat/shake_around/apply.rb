@@ -47,6 +47,9 @@ class Wechat::ShakeAround::Apply
   # reason:   申请理由，不超过100个汉字或200个英文字母。
   # comment:  备注，不超过15个汉字或30个英文字母。
   def self.create(access_token, quantity, reason, comment: nil, poi_id: nil)
+
+    assert_present! :access_token, access_token
+
     options = { quantity: quantity, apply_reason: reason }
     options[:comment] = comment if comment.present?
     options[:poi_id]  = poi_id  if poi_id.present?
