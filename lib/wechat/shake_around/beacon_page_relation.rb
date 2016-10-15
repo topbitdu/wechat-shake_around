@@ -22,6 +22,7 @@ class Wechat::ShakeAround::BeaconPageRelation
   def self.destroy(access_token, device_id, page_id)
 
     assert_present! :access_token, access_token
+    assert_present! :device_id, device_id
 
     device_identifier = normalize_device_id device_id
     page_ids          = normalize_page_ids  page_id
