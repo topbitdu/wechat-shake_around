@@ -92,7 +92,8 @@ class Wechat::ShakeAround::Page
   # }
   def self.destroy(access_token, page_id)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
+    #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/delete?access_token=#{access_token}", { page_id: page_id.to_i }
     message.body
