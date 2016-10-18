@@ -32,6 +32,7 @@ class Wechat::ShakeAround::Page
   def self.index(access_token, offset, limit)
 
     assert_present! :access_token, access_token
+    assert_present! :offset, offset
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}",
       {
