@@ -33,6 +33,7 @@ class Wechat::ShakeAround::Beacon
   def self.index(access_token, offset, limit, apply_id: nil)
 
     assert_present! :access_token, access_token
+    assert_present! :offset, offset
 
     options = { begin: offset, count: limit }
     if apply_id.present?
