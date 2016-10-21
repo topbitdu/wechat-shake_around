@@ -10,5 +10,5 @@ require 'wechat/shake_around'
 # require "pry"
 # Pry.start
 
-require "irb"
+require 'irb'
 IRB.start
