@@ -99,6 +99,7 @@ class Wechat::ShakeAround::Group
   def self.destroy(access_token, group_id)
 
     assert_present! :access_token, access_token
+    assert_present! :group_id, group_id
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/delete?access_token=#{access_token}", { group_id: group_id.to_i }
