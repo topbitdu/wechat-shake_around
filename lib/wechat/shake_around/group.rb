@@ -122,6 +122,7 @@ class Wechat::ShakeAround::Group
 
     assert_present! :access_token, access_token
     assert_present! :group_id, group_id
+    assert_present! :name, name
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/update?access_token=#{access_token}",
