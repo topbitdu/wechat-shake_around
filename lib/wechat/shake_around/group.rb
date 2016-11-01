@@ -150,7 +150,8 @@ class Wechat::ShakeAround::Group
   # name: 分组名称，不超过100汉字或200个英文字母
   def self.create(access_token, name)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
+    #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/add?access_token=#{access_token}", { group_name: name }
     message.body
