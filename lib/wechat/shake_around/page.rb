@@ -120,6 +120,7 @@ class Wechat::ShakeAround::Page
   def self.update(access_token, page_id, title, description, comment, page_link, icon_link)
 
     assert_present! :access_token, access_token
+    assert_present! :page_id, page_id
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/update?access_token=#{access_token}",
