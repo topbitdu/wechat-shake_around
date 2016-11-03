@@ -158,6 +158,7 @@ class Wechat::ShakeAround::Page
 
     assert_present! :access_token, access_token
     assert_present! :title, title
+    assert_present! :description, description
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/add?access_token=#{access_token}",
