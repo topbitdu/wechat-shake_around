@@ -156,7 +156,8 @@ class Wechat::ShakeAround::Page
   # icon_link   在摇一摇页面展示的图片。图片需先上传至微信侧服务器，用“素材管理-上传图片素材”接口上传图片，返回的图片URL再配置在此处。 
   def self.create(access_token, title, description, comment, page_link, icon_link)
 
-    raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
+    assert_present! :access_token, access_token
+    #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/add?access_token=#{access_token}",
       {
