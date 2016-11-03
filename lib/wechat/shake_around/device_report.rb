@@ -3,7 +3,7 @@ require 'jsonclient'
 class Wechat::ShakeAround::DeviceReport
 
   extend Wechat::Core::Common
-  extend ::Wechat::ShakeAround::Common
+  extend Wechat::ShakeAround::Common
 
   # 批量查询设备统计数据接口
   # http://mp.weixin.qq.com/wiki/0/8a24bcacad40fe7ee98d1573cb8a6764.html#.E6.89.B9.E9.87.8F.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87.E7.BB.9F.E8.AE.A1.E6.95.B0.E6.8D.AE.E6.8E.A5.E5.8F.A3
