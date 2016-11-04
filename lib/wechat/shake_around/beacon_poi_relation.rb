@@ -19,7 +19,7 @@ class Wechat::ShakeAround::BeaconPoiRelation
   def self.create(access_token, device_id, poi_id)
 
     assert_present! :access_token, access_token
-    assert_present! :device_id, device_id
+    assert_present! :device_id,    device_id
     assert_present! :poi_id, poi_id
 
     device_identifier = self.normalize_device_id device_id
