@@ -3,7 +3,7 @@ require 'jsonclient'
 class Wechat::ShakeAround::Beacon
 
   extend Wechat::Core::Common
-  extend ::Wechat::ShakeAround::Common
+  extend Wechat::ShakeAround::Common
 
   # 查询设备列表
   # http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87.E5.88.97.E8.A1.A8
