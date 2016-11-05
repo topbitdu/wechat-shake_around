@@ -29,7 +29,7 @@ class Wechat::ShakeAround::Shaking
   def self.load(access_token, ticket)
 
     assert_present! :access_token, access_token
-    assert_present! :ticket, ticket
+    assert_present! :ticket,       ticket
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/user/getshakeinfo?access_token=#{access_token}",
       {
