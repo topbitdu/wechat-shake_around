@@ -34,7 +34,7 @@ class Wechat::ShakeAround::Beacon
 
     assert_present! :access_token, access_token
     assert_present! :offset,       offset
-    assert_present! :limit, limit
+    assert_present! :limit,        limit
 
     options = { begin: offset, count: limit }
     if apply_id.present?
