@@ -121,7 +121,7 @@ class Wechat::ShakeAround::Group
   def self.update(access_token, group_id, name)
 
     assert_present! :access_token, access_token
-    assert_present! :group_id, group_id
+    assert_present! :group_id,     group_id
     assert_present! :name, name
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
