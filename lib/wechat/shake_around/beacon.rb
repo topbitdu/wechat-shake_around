@@ -103,7 +103,7 @@ class Wechat::ShakeAround::Beacon
   def self.update(access_token, device_id, comment)
 
     assert_present! :access_token, access_token
-    assert_present! :device_id, device_id
+    assert_present! :device_id,    device_id
     assert_present! :comment, comment
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
