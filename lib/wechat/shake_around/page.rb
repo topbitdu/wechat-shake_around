@@ -120,7 +120,7 @@ class Wechat::ShakeAround::Page
   def self.update(access_token, page_id, title, description, comment, page_link, icon_link)
 
     assert_present! :access_token, access_token
-    assert_present! :page_id, page_id
+    assert_present! :page_id,      page_id
     assert_present! :title, title
     assert_present! :description, description
     assert_present! :comment, comment
