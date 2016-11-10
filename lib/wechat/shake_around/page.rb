@@ -123,7 +123,7 @@ class Wechat::ShakeAround::Page
     assert_present! :page_id,      page_id
     assert_present! :title,        title
     assert_present! :description,  description
-    assert_present! :comment, comment
+    assert_present! :comment,      comment
     assert_present! :page_link, page_link
     assert_present! :icon_link, icon_link
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
