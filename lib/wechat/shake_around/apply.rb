@@ -22,7 +22,7 @@ class Wechat::ShakeAround::Apply
   # }
   def self.load(access_token, apply_id)
     assert_present! :access_token, access_token
-    assert_present! :apply_id, apply_id
+    assert_present! :apply_id,     apply_id
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/applystatus?access_token=#{access_token}", { apply_id: apply_id.to_i }
     message.body
