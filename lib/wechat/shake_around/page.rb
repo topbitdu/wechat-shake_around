@@ -157,7 +157,7 @@ class Wechat::ShakeAround::Page
   def self.create(access_token, title, description, comment, page_link, icon_link)
 
     assert_present! :access_token, access_token
-    assert_present! :title, title
+    assert_present! :title,        title
     assert_present! :description, description
     assert_present! :comment, comment
     assert_present! :page_link, page_link
