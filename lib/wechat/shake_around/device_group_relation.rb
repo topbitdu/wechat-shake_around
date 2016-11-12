@@ -19,7 +19,7 @@ class Wechat::ShakeAround::DeviceGroupRelation
   def self.destroy(access_token, device_id, group_id)
 
     assert_present! :access_token, access_token
-    assert_present! :device_id, device_id
+    assert_present! :device_id,    device_id
     assert_present! :group_id, group_id
 
     device_identifier = normalize_device_id device_id
