@@ -31,7 +31,7 @@ class Wechat::ShakeAround::DeviceDailyReport
 
     assert_present! :access_token, access_token
     assert_present! :device_id,    device_id
-    assert_present! :date_range, date_range
+    assert_present! :date_range,   date_range
 
     device_identifier = normalize_device_id device_id
 
