@@ -1,7 +1,7 @@
 class Wechat::ShakeAround::License
 
   extend Wechat::Core::Common
-  extend ::Wechat::ShakeAround::Common
+  extend Wechat::ShakeAround::Common
   extend ::Wechat::ShakeAround::Material
 
   # 上传图片素材
