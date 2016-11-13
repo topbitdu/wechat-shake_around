@@ -2,7 +2,7 @@ class Wechat::ShakeAround::Icon
 
   extend Wechat::Core::Common
   extend Wechat::ShakeAround::Common
-  extend ::Wechat::ShakeAround::Material
+  extend Wechat::ShakeAround::Material
 
   # 上传图片素材
   # http://mp.weixin.qq.com/wiki/5/e997428269ff189d8f9a4b9e177be2d9.html
