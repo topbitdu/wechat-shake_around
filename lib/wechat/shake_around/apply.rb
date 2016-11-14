@@ -50,7 +50,7 @@ class Wechat::ShakeAround::Apply
 
     assert_present! :access_token, access_token
     assert_present! :quantity,     quantity
-    assert_present! :reason, reason
+    assert_present! :reason,       reason
 
     options = { quantity: quantity, apply_reason: reason }
     options[:comment] = comment if comment.present?
