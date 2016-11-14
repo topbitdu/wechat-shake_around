@@ -49,7 +49,7 @@ class Wechat::ShakeAround::Apply
   def self.create(access_token, quantity, reason, comment: nil, poi_id: nil)
 
     assert_present! :access_token, access_token
-    assert_present! :quantity, quantity
+    assert_present! :quantity,     quantity
     assert_present! :reason, reason
 
     options = { quantity: quantity, apply_reason: reason }
