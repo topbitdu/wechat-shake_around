@@ -48,7 +48,7 @@ class Wechat::ShakeAround::Registration
   def self.create(access_token, name, phone_number, email, industry_id, qualification_links, apply_reason)
 
     assert_present! :access_token, access_token
-    assert_present! :name, name
+    assert_present! :name,         name
     assert_present! :phone_number, phone_number
     assert_present! :email, email
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
