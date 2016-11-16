@@ -20,7 +20,7 @@ class Wechat::ShakeAround::DeviceGroupRelation
 
     assert_present! :access_token, access_token
     assert_present! :device_id,    device_id
-    assert_present! :group_id, group_id
+    assert_present! :group_id,     group_id
 
     device_identifier = normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/deletedevice?access_token=#{access_token}",
