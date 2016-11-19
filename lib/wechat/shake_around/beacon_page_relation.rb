@@ -56,6 +56,7 @@ class Wechat::ShakeAround::BeaconPageRelation
 
     assert_present! :access_token, access_token
     assert_present! :device_id,    device_id
+    assert_present! :page_id,      page_id
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     device_identifier = normalize_device_id device_id
