@@ -47,6 +47,7 @@ class Wechat::ShakeAround::DeviceGroupRelation
 
     assert_present! :access_token, access_token
     assert_present! :device_id,    device_id
+    assert_present! :group_id,     group_id
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     device_identifier = normalize_device_id device_id
