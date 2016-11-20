@@ -17,6 +17,7 @@ module Wechat::ShakeAround::Material
   def upload(access_token, media, type)
 
     assert_present! :access_token, access_token
+    assert_present! :media, media
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = nil
