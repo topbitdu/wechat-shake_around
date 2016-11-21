@@ -18,6 +18,7 @@ module Wechat::ShakeAround::Material
 
     assert_present! :access_token, access_token
     assert_present! :media, media
+    assert_present! :type, type
     #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = nil
