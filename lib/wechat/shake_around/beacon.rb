@@ -78,7 +78,6 @@ class Wechat::ShakeAround::Beacon
 
     assert_present! :access_token, access_token
     assert_present! :device_id,    device_id
-    #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     device_identifier = self.normalize_device_id device_id
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/search?access_token=#{access_token}",
