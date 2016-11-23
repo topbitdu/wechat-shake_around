@@ -51,7 +51,6 @@ class Wechat::ShakeAround::Registration
     assert_present! :name,         name
     assert_present! :phone_number, phone_number
     assert_present! :email,        email
-    #raise ArgumentError.new('The access_token argument is required.') if access_token.blank?
 
     message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/account/register?access_token=#{access_token}",
       {
