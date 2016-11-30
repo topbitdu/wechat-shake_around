@@ -39,7 +39,7 @@ class Wechat::ShakeAround::PageReport
     assert_present! :date,         date
     assert_present! :page_index,   page_index
 
-    message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/statistics/pagelist?access_token=#{access_token}",
+    message = post_json "https://api.weixin.qq.com/shakearound/statistics/pagelist?access_token=#{access_token}", body:
       {
         date:       normalize_date(date), 
         page_index: page_index.to_i
