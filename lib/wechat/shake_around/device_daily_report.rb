@@ -35,7 +35,7 @@ class Wechat::ShakeAround::DeviceDailyReport
 
     device_identifier = normalize_device_id device_id
 
-    message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/statistics/device?access_token=#{access_token}",
+    message = post_json "https://api.weixin.qq.com/shakearound/statistics/device?access_token=#{access_token}", body:
       {
         device_identifier: device_identifier,
         begin_date:        normalize_date(date_range.min), 
