@@ -55,7 +55,7 @@ class Wechat::ShakeAround::Apply
     options = { quantity: quantity, apply_reason: reason }
     options[:comment] = comment if comment.present?
     options[:poi_id]  = poi_id  if poi_id.present?
-    message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/applyid?access_token=#{access_token}", options
+    message = post_json "https://api.weixin.qq.com/shakearound/device/applyid?access_token=#{access_token}", body: options
     message.body
   end
 
