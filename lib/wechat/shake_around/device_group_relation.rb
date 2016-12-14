@@ -50,7 +50,7 @@ class Wechat::ShakeAround::DeviceGroupRelation
     assert_present! :group_id,     group_id
 
     device_identifier = normalize_device_id device_id
-    message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/adddevice?access_token=#{access_token}",
+    message = post_json "https://api.weixin.qq.com/shakearound/device/group/adddevice?access_token=#{access_token}", body:
       {
         group_id:           group_id.to_i,
         device_identifiers: [ device_identifier ]
