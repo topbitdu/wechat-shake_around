@@ -75,7 +75,7 @@ class Wechat::ShakeAround::Page
     assert_present! :access_token, access_token
     assert_present! :page_id,      page_id
 
-    message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}",
+    message = post_json "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}", body:
       {
         type:     1,
         page_ids: normalize_page_ids(page_id)
