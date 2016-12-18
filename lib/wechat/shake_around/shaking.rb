@@ -31,7 +31,7 @@ class Wechat::ShakeAround::Shaking
     assert_present! :access_token, access_token
     assert_present! :ticket,       ticket
 
-    message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/user/getshakeinfo?access_token=#{access_token}",
+    message = post_json "https://api.weixin.qq.com/shakearound/user/getshakeinfo?access_token=#{access_token}", body:
       {
         ticket:   ticket,
         need_poi: 1
