@@ -17,7 +17,7 @@ module Wechat::ShakeAround::Material
   def upload(access_token, media, type)
 
     assert_present! :access_token, access_token
-    assert_present! :media, media
+    assert_present! :media,        media
     assert_present! :type, type
 
     message = nil
