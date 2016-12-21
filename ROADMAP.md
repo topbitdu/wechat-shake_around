@@ -36,7 +36,7 @@
 1. Registration wrapper class
 
 ## v0.9.1
-1. Improve the Ruby Gem Specification to depend on [wechat-core](https://github.com/topbitdu/wechat-core)
+1. Improve the Ruby Gem Specification to depend on [wechat-core](https://github.com/topbitdu/wechat-core) v0.4
 2. Improve the Apply wrapper class for the argument validation & HTTP request
 3. Improve the Beacon wrapper class for the argument validation & HTTP request
 4. Improve the Beacon Page Relation wrapper class for the argument validation & HTTP request
