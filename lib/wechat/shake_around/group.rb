@@ -150,7 +150,7 @@ class Wechat::ShakeAround::Group
     assert_present! :access_token, access_token
     assert_present! :name,         name
 
-    message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/group/add?access_token=#{access_token}", { group_name: name }
+    message = post_json "https://api.weixin.qq.com/shakearound/device/group/add?access_token=#{access_token}", body: { group_name: name }
     message.body
   end
 
