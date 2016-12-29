@@ -106,7 +106,7 @@ class Wechat::ShakeAround::Beacon
     assert_present! :comment,      comment
 
     device_identifier = self.normalize_device_id device_id
-    message = ::JSONClient.new.post "https://api.weixin.qq.com/shakearound/device/update?access_token=#{access_token}",
+    message = post_json "https://api.weixin.qq.com/shakearound/device/update?access_token=#{access_token}",
       {
         device_identifier: device_identifier,
         comment:           comment
