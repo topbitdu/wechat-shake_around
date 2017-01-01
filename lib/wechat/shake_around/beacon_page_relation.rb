@@ -31,7 +31,7 @@ class Wechat::ShakeAround::BeaconPageRelation
     message = post_json "https://api.weixin.qq.com/shakearound/device/bindpage?access_token=#{access_token}", body:
       {
         device_identifier: device_identifier,
-        page_ids:          page_ids, 
+        page_ids:          page_ids,
         bind:              0,
         append:            0
       }
@@ -61,10 +61,10 @@ class Wechat::ShakeAround::BeaconPageRelation
     device_identifier = normalize_device_id device_id
     page_ids          = normalize_page_ids  page_id
 
-    message = post_json "https://api.weixin.qq.com/shakearound/device/bindpage?access_token=#{access_token}",
+    message = post_json "https://api.weixin.qq.com/shakearound/device/bindpage?access_token=#{access_token}", body:
       {
         device_identifier: device_identifier,
-        page_ids:          page_ids, 
+        page_ids:          page_ids,
         bind:              1,
         append:            1
       }
