@@ -1,5 +1,3 @@
-require 'jsonclient'
-
 class Wechat::ShakeAround::Apply
 
   extend Wechat::Core::Common
