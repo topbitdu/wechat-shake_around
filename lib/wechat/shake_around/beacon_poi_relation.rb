@@ -1,5 +1,3 @@
-require 'jsonclient'
-
 class Wechat::ShakeAround::BeaconPoiRelation
 
   extend Wechat::Core::Common
