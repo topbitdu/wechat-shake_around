@@ -1,5 +1,3 @@
-require 'jsonclient'
-
 class Wechat::ShakeAround::Beacon
 
   extend Wechat::Core::Common
@@ -20,7 +18,7 @@ class Wechat::ShakeAround::Beacon
   #         major:            <MAJOR>,
   #         minor:            <MINOR>,
   #         status:           <STATUS>,           // 激活状态，0：未激活，1：已激活
-  #         last_active_time: <LAST_ACTIVE_TIME>, // 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0 
+  #         last_active_time: <LAST_ACTIVE_TIME>, // 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0
   #         poi_id:           <POI_ID>,           // 设备关联的门店ID，关联门店后，在门店1KM的范围内有优先摇出信息的机会。门店相关信息具体可查看门店相关的接口文档
   #         uuid:             <UUID>
   #       }
@@ -62,7 +60,7 @@ class Wechat::ShakeAround::Beacon
   #         major:            <MAJOR>,
   #         minor:            <MINOR>,
   #         status:           <STATUS>,           // 激活状态，0：未激活，1：已激活
-  #         last_active_time: <LAST_ACTIVE_TIME>, // 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0 
+  #         last_active_time: <LAST_ACTIVE_TIME>, // 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0
   #         poi_id:           <POI_ID>,           // 设备关联的门店ID，关联门店后，在门店1KM的范围内有优先摇出信息的机会。门店相关信息具体可查看门店相关的接口文档
   #         uuid:             <UUID>
   #       }
