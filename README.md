@@ -1,6 +1,8 @@
 # Wechat Shake Around 微信摇周边库
 
+[![Documentation](http://img.shields.io/badge/docs-rdoc.info-blue.svg)](http://www.rubydoc.info/gems/wechat-shake_around/frames)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](http://opensource.org/licenses/MIT)
+
 [![Gem Version](https://badge.fury.io/rb/wechat-shake_around.svg)](https://badge.fury.io/rb/wechat-shake_around)
 [![Dependency Status](https://gemnasium.com/badges/github.com/topbitdu/wechat-shake_around.svg)](https://gemnasium.com/github.com/topbitdu/wechat-shake_around)
 
@@ -165,7 +167,7 @@ if response.present? && 0==response['errcode'].to_i
     status           = device['status']
                        # 0：未激活，1：已激活
     last_active_time = device['last_active_time']
-                       # 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0 
+                       # 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0
     poi_id           = device['poi_id']
                        # 设备关联的门店ID，关联门店后，在门店1KM的范围内有优先摇出信息的机会
   end
@@ -188,7 +190,7 @@ if response.present? && 0==response['errcode'].to_i
     status           = device['status']
                        # 0：未激活，1：已激活
     last_active_time = device['last_active_time']
-                       # 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0 
+                       # 设备最近一次被摇到的日期（最早只能获取前一天的数据）；新申请的设备该字段值为0
     poi_id           = device['poi_id']
                        # 设备关联的门店ID，关联门店后，在门店1KM的范围内有优先摇出信息的机会
   end
@@ -310,7 +312,7 @@ if response.present? && 0==response['errcode'].to_i
     comment     = page['comment']     # 页面的备注信息
     description = page['description'] # 在摇一摇页面展示的副标题
     icon_url    = page['icon_url']    # 在摇一摇页面展示的图片
-    page_id     = page['page_id']     # 摇周边页面唯一ID 
+    page_id     = page['page_id']     # 摇周边页面唯一ID
     page_url    = page['page_url']    # 跳转链接
     title       = page['title']       # 在摇一摇页面展示的主标题
   end
@@ -328,7 +330,7 @@ if response.present? && 0==response['errcode'].to_i
   comment     = page['comment']     # 页面的备注信息
   description = page['description'] # 在摇一摇页面展示的副标题
   icon_url    = page['icon_url']    # 在摇一摇页面展示的图片
-  page_id     = page['page_id']     # 摇周边页面唯一ID 
+  page_id     = page['page_id']     # 摇周边页面唯一ID
   page_url    = page['page_url']    # 跳转链接
   title       = page['title']       # 在摇一摇页面展示的主标题
 else
