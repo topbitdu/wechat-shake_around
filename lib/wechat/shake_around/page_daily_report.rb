@@ -1,5 +1,3 @@
-require 'jsonclient'
-
 class Wechat::ShakeAround::PageDailyReport
 
   extend Wechat::Core::Common
