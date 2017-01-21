@@ -1,3 +1,6 @@
+##
+# 微信摇一摇周边的摇动封装类。
+
 class Wechat::ShakeAround::Shaking
 
   extend Wechat::Core::Common
