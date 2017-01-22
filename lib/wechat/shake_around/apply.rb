@@ -1,3 +1,6 @@
+##
+# Apply 是批量申请 iBeacon 设备 UUID 、 Major 和 Minor 的封装类。
+
 class Wechat::ShakeAround::Apply
 
   extend Wechat::Core::Common
