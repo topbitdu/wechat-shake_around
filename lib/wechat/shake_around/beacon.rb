@@ -1,3 +1,6 @@
+##
+# Beacon 是管理 iBeacon 设备的封装类。
+
 class Wechat::ShakeAround::Beacon
 
   extend Wechat::Core::Common
