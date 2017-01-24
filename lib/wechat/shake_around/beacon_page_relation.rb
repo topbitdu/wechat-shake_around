@@ -1,3 +1,6 @@
+##
+# Beacon Page Relation 是管理 iBeacon 设备和页面之间关系的封装类。
+
 class Wechat::ShakeAround::BeaconPageRelation
 
   extend Wechat::Core::Common
