@@ -1,3 +1,6 @@
+##
+# Beacon Poi Relation 是管理 iBeacon 设备和入口 (PoI, Point of Interest) 之间关系的封装类。
+
 class Wechat::ShakeAround::BeaconPoiRelation
 
   extend Wechat::Core::Common
