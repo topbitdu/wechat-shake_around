@@ -1,3 +1,6 @@
+##
+# Page 是管理页面的封装类。
+
 class Wechat::ShakeAround::Page
 
   extend Wechat::Core::Common
@@ -16,7 +19,7 @@ class Wechat::ShakeAround::Page
   #         comment:     <COMMENT>,     // 页面的备注信息
   #         description: <DESCRIPTION>, // 在摇一摇页面展示的副标题
   #         icon_url:    <ICON_LINK>,   // 在摇一摇页面展示的图片
-  #         page_id:     <PAGE_ID>,     // 摇周边页面唯一ID 
+  #         page_id:     <PAGE_ID>,     // 摇周边页面唯一ID
   #         page_url:    <PAGE_LINK>,   // 跳转链接
   #         title:       <TITLE>        // 在摇一摇页面展示的主标题
   #       },
@@ -35,7 +38,7 @@ class Wechat::ShakeAround::Page
 
     message = post_json "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}", body:
       {
-        type:  2, 
+        type:  2,
         begin: offset.to_i,
         count: limit.to_i
       }
@@ -55,7 +58,7 @@ class Wechat::ShakeAround::Page
   #         comment:     <COMMENT>,     // 页面的备注信息
   #         description: <DESCRIPTION>, // 在摇一摇页面展示的副标题
   #         icon_url:    <ICON_LINK>,   // 在摇一摇页面展示的图片
-  #         page_id:     <PAGE_ID>,     // 摇周边页面唯一ID 
+  #         page_id:     <PAGE_ID>,     // 摇周边页面唯一ID
   #         page_url:    <PAGE_LINK>,   // 跳转链接
   #         title:       <TITLE>        // 在摇一摇页面展示的主标题
   #       },
@@ -112,7 +115,7 @@ class Wechat::ShakeAround::Page
   # title       在摇一摇页面展示的主标题，不超过6个汉字或12个英文字母。
   # description 在摇一摇页面展示的副标题，不超过7个汉字或14个英文字母。
   # comment     页面的备注信息，不超过15个汉字或30个英文字母。
-  # icon_link   在摇一摇页面展示的图片。图片需先上传至微信侧服务器，用“素材管理-上传图片素材”接口上传图片，返回的图片URL再配置在此处。 
+  # icon_link   在摇一摇页面展示的图片。图片需先上传至微信侧服务器，用“素材管理-上传图片素材”接口上传图片，返回的图片URL再配置在此处。
   def self.update(access_token, page_id, title, description, comment, page_link, icon_link)
 
     assert_present! :access_token, access_token
@@ -148,7 +151,7 @@ class Wechat::ShakeAround::Page
   # title       在摇一摇页面展示的主标题，不超过6个汉字或12个英文字母。
   # description 在摇一摇页面展示的副标题，不超过7个汉字或14个英文字母。
   # comment     页面的备注信息，不超过15个汉字或30个英文字母。
-  # icon_link   在摇一摇页面展示的图片。图片需先上传至微信侧服务器，用“素材管理-上传图片素材”接口上传图片，返回的图片URL再配置在此处。 
+  # icon_link   在摇一摇页面展示的图片。图片需先上传至微信侧服务器，用“素材管理-上传图片素材”接口上传图片，返回的图片URL再配置在此处。
   def self.create(access_token, title, description, comment, page_link, icon_link)
 
     assert_present! :access_token, access_token
