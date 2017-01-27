@@ -1,3 +1,6 @@
+##
+# Page Report 是页面统计报表的封装类。
+
 class Wechat::ShakeAround::PageReport
 
   extend Wechat::Core::Common
@@ -24,7 +27,7 @@ class Wechat::ShakeAround::PageReport
   #   },
   #   date:        <DATE>,        // 所查询的日期时间戳
   #   total_count: <TOTAL_COUNT>, // 页面总数
-  #   page_index:  <PAGE_INDEX>,  // 所查询的结果页序号；返回结果按摇周边人数降序排序，每50条记录为一页 
+  #   page_index:  <PAGE_INDEX>,  // 所查询的结果页序号；返回结果按摇周边人数降序排序，每50条记录为一页
   #   errcode:     0,
   #   errmsg:      'success.'
   # }
@@ -39,7 +42,7 @@ class Wechat::ShakeAround::PageReport
 
     message = post_json "https://api.weixin.qq.com/shakearound/statistics/pagelist?access_token=#{access_token}", body:
       {
-        date:       normalize_date(date), 
+        date:       normalize_date(date),
         page_index: page_index.to_i
       }
     message.body
