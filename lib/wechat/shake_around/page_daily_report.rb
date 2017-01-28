@@ -1,3 +1,6 @@
+##
+# Page Daily Report 是页面每日统计报表的封装类。
+
 class Wechat::ShakeAround::PageDailyReport
 
   extend Wechat::Core::Common
@@ -23,7 +26,7 @@ class Wechat::ShakeAround::PageDailyReport
   #   errmsg:  'success.'
   # }
   #
-  # page_id is an integer 指定页面的ID 
+  # page_id is an integer 指定页面的ID
   # date_range is a string range like 'yyyy-mm-dd'..'yyyy-mm-dd'.
   def self.index(access_token, page_id, date_range)
 
@@ -34,7 +37,7 @@ class Wechat::ShakeAround::PageDailyReport
     message = post_json "https://api.weixin.qq.com/shakearound/statistics/page?access_token=#{access_token}", body:
       {
         page_id:    page_id.to_i,
-        begin_date: normalize_date(date_range.min), 
+        begin_date: normalize_date(date_range.min),
         end_date:   normalize_date(date_range.max)
       }
     message.body
