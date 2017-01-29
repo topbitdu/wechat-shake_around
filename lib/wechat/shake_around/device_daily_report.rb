@@ -1,3 +1,6 @@
+##
+# Device Daily Report 是 iBeacon 设备每日统计报表的封装类。
+
 class Wechat::ShakeAround::DeviceDailyReport
 
   extend Wechat::Core::Common
@@ -36,7 +39,7 @@ class Wechat::ShakeAround::DeviceDailyReport
     message = post_json "https://api.weixin.qq.com/shakearound/statistics/device?access_token=#{access_token}", body:
       {
         device_identifier: device_identifier,
-        begin_date:        normalize_date(date_range.min), 
+        begin_date:        normalize_date(date_range.min),
         end_date:          normalize_date(date_range.max)
       }
     message.body
