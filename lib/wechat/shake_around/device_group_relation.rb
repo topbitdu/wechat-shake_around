@@ -1,3 +1,6 @@
+##
+# Device Group Report 是管理 iBeacon 设备与设备分组关系的封装类。
+
 class Wechat::ShakeAround::DeviceGroupRelation
 
   extend Wechat::Core::Common
