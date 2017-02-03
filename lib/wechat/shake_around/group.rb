@@ -1,3 +1,6 @@
+##
+# Group 是 管理 iBeacon 设备分组的封装类。
+
 class Wechat::ShakeAround::Group
 
   extend Wechat::Core::Common
