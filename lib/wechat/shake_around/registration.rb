@@ -1,3 +1,6 @@
+##
+# Registration 是账号注册管理的封装类。
+
 class Wechat::ShakeAround::Registration
 
   extend Wechat::Core::Common
