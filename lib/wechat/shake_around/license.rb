@@ -1,3 +1,6 @@
+##
+# License 是许可证管理的封装类。
+
 class Wechat::ShakeAround::License
 
   extend Wechat::Core::Common
