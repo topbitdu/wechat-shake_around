@@ -1,3 +1,6 @@
+##
+# Icon 是图标管理的封装类。
+
 class Wechat::ShakeAround::Icon
 
   extend Wechat::Core::Common
