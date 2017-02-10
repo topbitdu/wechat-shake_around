@@ -91,6 +91,7 @@ class Wechat::ShakeAround::Beacon
     message.body
   end
 
+  ##
   # 编辑设备信息
   # http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E7.BC.96.E8.BE.91.E8.AE.BE.E5.A4.87.E4.BF.A1.E6.81.AF
   #
