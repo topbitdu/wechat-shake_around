@@ -42,6 +42,7 @@ class Wechat::ShakeAround::Group
     message.body
   end
 
+  ##
   # 查询分组详情
   # http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.9F.A5.E8.AF.A2.E5.88.86.E7.BB.84.E8.AF.A6.E6.83.85
   #
