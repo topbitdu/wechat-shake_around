@@ -87,6 +87,7 @@ class Wechat::ShakeAround::Group
     message.body
   end
 
+  ##
   # 删除分组
   # http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E5.88.A0.E9.99.A4.E5.88.86.E7.BB.84
   #
