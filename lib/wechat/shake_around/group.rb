@@ -108,6 +108,7 @@ class Wechat::ShakeAround::Group
     message.body
   end
 
+  ##
   # 编辑分组信息
   # http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E7.BC.96.E8.BE.91.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF
   #
