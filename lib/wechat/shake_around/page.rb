@@ -86,6 +86,7 @@ class Wechat::ShakeAround::Page
     message.body
   end
 
+  ##
   # 删除页面
   # http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E5.88.A0.E9.99.A4.E9.A1.B5.E9.9D.A2
   #
