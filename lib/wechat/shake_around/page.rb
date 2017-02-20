@@ -105,6 +105,7 @@ class Wechat::ShakeAround::Page
     message.body
   end
 
+  ##
   # 编辑页面信息
   # http://mp.weixin.qq.com/wiki/5/6626199ea8757c752046d8e46cf13251.html#.E7.BC.96.E8.BE.91.E9.A1.B5.E9.9D.A2.E4.BF.A1.E6.81.AF
   #
