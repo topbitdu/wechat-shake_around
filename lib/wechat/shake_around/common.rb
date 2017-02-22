@@ -1,3 +1,6 @@
+##
+# Common 是公共模块。
+
 module Wechat::ShakeAround::Common
 
   # http://mp.weixin.qq.com/wiki/5/fe90761a540f6fe056c774ab3df8afe9.html
