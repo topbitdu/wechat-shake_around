@@ -81,6 +81,11 @@ module Wechat::ShakeAround::Common
       9001091 => '活动已过期'
     }.freeze
 
+  ##
+  # 将日期文本或者日期对象转换为秒数。如：
+  # Wechat::ShakeAround::Common.normalize_date '2000-01-01'
+  # 或者
+  # Wechat::ShakeAround::Common.normalize_date Date.today
   def normalize_date(date)
     date = Date.parse date if date.is_a? String
     date.to_time.to_i
