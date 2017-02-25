@@ -91,6 +91,12 @@ module Wechat::ShakeAround::Common
     date.to_time.to_i
   end
 
+  ##
+  # 将 device_id 转换为 Hash 格式。如：
+  # Wechat::ShakeAround::Common.normalize_device_id '1234' # { device_id: '1234' }
+  # 或者
+  # Wechat::ShakeAround::Common.normalize_device_id { uuid: 'c1de0c84-5997-40ea-b3cc-c102ead33483', major: 123, minor: 456 }
+  # # { uuid: 'c1de0c84-5997-40ea-b3cc-c102ead33483', major: 123, minor: 456 }
   def normalize_device_id(device_id)
     device_id.is_a?(Hash) ? device_id : { device_id: device_id.to_i }
   end
