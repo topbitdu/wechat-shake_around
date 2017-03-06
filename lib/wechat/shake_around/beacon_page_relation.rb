@@ -6,6 +6,7 @@ class Wechat::ShakeAround::BeaconPageRelation
   extend Wechat::Core::Common
   extend Wechat::ShakeAround::Common
 
+  ##
   # 删除设备与页面的关联关系
   # http://mp.weixin.qq.com/wiki/12/c8120214ec0ba08af5dfcc0da1a11400.html
   #
