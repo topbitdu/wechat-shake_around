@@ -6,6 +6,7 @@ class Wechat::ShakeAround::BeaconPoiRelation
   extend Wechat::Core::Common
   extend Wechat::ShakeAround::Common
 
+  ##
   # 配置设备与门店的关联关系
   # http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E9.85.8D.E7.BD.AE.E8.AE.BE.E5.A4.87.E4.B8.8E.E9.97.A8.E5.BA.97.E7.9A.84.E5.85.B3.E8.81.94.E5.85.B3.E7.B3.BB
   #
