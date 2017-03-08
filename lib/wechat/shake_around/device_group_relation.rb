@@ -6,6 +6,7 @@ class Wechat::ShakeAround::DeviceGroupRelation
   extend Wechat::Core::Common
   extend Wechat::ShakeAround::Common
 
+  ##
   # 从分组中移除设备
   # http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E4.BB.8E.E5.88.86.E7.BB.84.E4.B8.AD.E7.A7.BB.E9.99.A4.E8.AE.BE.E5.A4.87
   #
