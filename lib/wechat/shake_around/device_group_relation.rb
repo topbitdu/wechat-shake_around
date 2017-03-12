@@ -33,6 +33,7 @@ class Wechat::ShakeAround::DeviceGroupRelation
     message.body
   end
 
+  ##
   # 添加设备到分组
   # http://mp.weixin.qq.com/wiki/10/9f6b498b6aa0eb5ef6b9ab5a70cc8fba.html#.E6.B7.BB.E5.8A.A0.E8.AE.BE.E5.A4.87.E5.88.B0.E5.88.86.E7.BB.84
   #
