@@ -6,6 +6,7 @@ class Wechat::ShakeAround::Apply
   extend Wechat::Core::Common
   extend Wechat::ShakeAround::Common
 
+  ##
   # 查询设备ID申请审核状态
   # http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E6.9F.A5.E8.AF.A2.E8.AE.BE.E5.A4.87ID.E7.94.B3.E8.AF.B7.E5.AE.A1.E6.A0.B8.E7.8A.B6.E6.80.81
   #
