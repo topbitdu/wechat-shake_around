@@ -30,6 +30,7 @@ class Wechat::ShakeAround::Apply
     message.body
   end
 
+  ##
   # 申请设备ID
   # http://mp.weixin.qq.com/wiki/15/b9e012f917e3484b7ed02771156411f3.html#.E7.94.B3.E8.AF.B7.E8.AE.BE.E5.A4.87ID
   #
