@@ -34,6 +34,7 @@ class Wechat::ShakeAround::Registration
     message.body
   end
 
+  ##
   # 申请开通功能
   # http://mp.weixin.qq.com/wiki/13/025f1d471dc999928340161c631c6635.html#.E7.94.B3.E8.AF.B7.E5.BC.80.E9.80.9A.E5.8A.9F.E8.83.BD
   # 成功提交申请请求后，工作人员会在三个工作日内完成审核。
