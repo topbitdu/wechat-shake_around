@@ -6,6 +6,7 @@ class Wechat::ShakeAround::Shaking
   extend Wechat::Core::Common
   extend Wechat::ShakeAround::Common
 
+  ##
   # 获取摇周边的设备及用户信息
   # http://mp.weixin.qq.com/wiki/3/34904a5db3d0ec7bb5306335b8da1faf.html
   #
