@@ -45,8 +45,7 @@ class Wechat::ShakeAround::Beacon
     else
       options[:type]     = 2
     end
-    message = post_json "https://api.weixin.qq.com/shakearound/device/search?access_token=#{access_token}", body: options
-    message.body
+    post_json "https://api.weixin.qq.com/shakearound/device/search?access_token=#{access_token}", body: options
   end
 
   ##
