@@ -82,12 +82,11 @@ class Wechat::ShakeAround::Beacon
     assert_present! :device_id,    device_id
 
     device_identifier = self.normalize_device_id device_id
-    message = post_json "https://api.weixin.qq.com/shakearound/device/search?access_token=#{access_token}", body:
+    post_json "https://api.weixin.qq.com/shakearound/device/search?access_token=#{access_token}", body:
       {
         type:               1,
         device_identifiers: [ device_identifier ]
       }
-    message.body
   end
 
   ##
