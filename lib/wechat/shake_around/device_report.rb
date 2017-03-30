@@ -44,12 +44,11 @@ class Wechat::ShakeAround::DeviceReport
     assert_present! :date,         date
     assert_present! :page_index,   page_index
 
-    message = post_json "https://api.weixin.qq.com/shakearound/statistics/devicelist?access_token=#{access_token}", body:
+    post_json "https://api.weixin.qq.com/shakearound/statistics/devicelist?access_token=#{access_token}", body:
       {
         date:       normalize_date(date),
         page_index: page_index.to_i
       }
-    message.body
   end
 
 end
