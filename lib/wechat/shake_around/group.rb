@@ -34,12 +34,11 @@ class Wechat::ShakeAround::Group
 
     assert_present! :access_token, access_token
 
-    message = post_json "https://api.weixin.qq.com/shakearound/device/group/getlist?access_token=#{access_token}", body:
+    post_json "https://api.weixin.qq.com/shakearound/device/group/getlist?access_token=#{access_token}", body:
       {
         begin: offset.to_i,
         count: limit.to_i
       }
-    message.body
   end
 
   ##
