@@ -37,13 +37,12 @@ class Wechat::ShakeAround::Page
     assert_present! :offset,       offset
     assert_present! :limit,        limit
 
-    message = post_json "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}", body:
+    post_json "https://api.weixin.qq.com/shakearound/page/search?access_token=#{access_token}", body:
       {
         type:  2,
         begin: offset.to_i,
         count: limit.to_i
       }
-    message.body
   end
 
   ##
