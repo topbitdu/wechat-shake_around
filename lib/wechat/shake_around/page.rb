@@ -99,8 +99,10 @@ class Wechat::ShakeAround::Page
     assert_present! :access_token, access_token
     assert_present! :page_id,      page_id
 
-    message = post_json "https://api.weixin.qq.com/shakearound/page/delete?access_token=#{access_token}", body: { page_id: page_id.to_i }
-    message.body
+    post_json "https://api.weixin.qq.com/shakearound/page/delete?access_token=#{access_token}", body:
+      {
+        page_id: page_id.to_i
+      }
   end
 
   ##
