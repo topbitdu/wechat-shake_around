@@ -130,7 +130,7 @@ class Wechat::ShakeAround::Page
     assert_present! :page_link,    page_link
     assert_present! :icon_link,    icon_link
 
-    message = post_json "https://api.weixin.qq.com/shakearound/page/update?access_token=#{access_token}", body:
+    post_json "https://api.weixin.qq.com/shakearound/page/update?access_token=#{access_token}", body:
       {
         page_id:     page_id.to_i,
         title:       title,
@@ -139,7 +139,6 @@ class Wechat::ShakeAround::Page
         comment:     comment,
         icon_url:    icon_link
       }
-    message.body
   end
 
   ##
