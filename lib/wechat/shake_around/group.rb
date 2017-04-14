@@ -102,7 +102,10 @@ class Wechat::ShakeAround::Group
     assert_present! :access_token, access_token
     assert_present! :group_id,     group_id
 
-    post_json "https://api.weixin.qq.com/shakearound/device/group/delete?access_token=#{access_token}", body: { group_id: group_id.to_i }
+    post_json "https://api.weixin.qq.com/shakearound/device/group/delete?access_token=#{access_token}", body:
+      {
+        group_id: group_id.to_i
+      }
   end
 
   ##
