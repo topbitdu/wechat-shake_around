@@ -30,8 +30,7 @@ class Wechat::ShakeAround::Registration
 
     assert_present! :access_token, access_token
 
-    message = get_json "https://api.weixin.qq.com/shakearound/account/auditstatus?access_token=#{access_token}"
-    message.body
+    get_json "https://api.weixin.qq.com/shakearound/account/auditstatus?access_token=#{access_token}"
   end
 
   ##
