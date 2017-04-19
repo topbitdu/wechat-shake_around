@@ -53,3 +53,18 @@
 15. Improve the Page Report wrapper class for the argument validation & HTTP request
 16. Improve the Registration wrapper class for the argument validation & HTTP request
 17. Improve the Shaking wrapper class for the argument validation & HTTP request
+
+## v0.9.2
+1. Improve the Apply wrapper class for the HTTP request
+2. Improve the Beacon wrapper class for the HTTP request
+3. Improve the Beacon Page Relation wrapper class for the HTTP request
+4. Improve the Beacon PoI Relation wrapper class for the HTTP request
+5. Improve the Device Daily Report wrapper class for the HTTP request
+6. Improve the Device Group Relation wrapper class for the HTTP request
+7. Improve the Device Report wrapper class for the HTTP request
+8. Improve the Group wrapper class for the HTTP request
+9. Improve the Page wrapper class for the HTTP request
+10. Improve the Page Daily Report wrapper class for the HTTP request
+11. Improve the Page Report wrapper class for the HTTP request
+12. Improve the Registration wrapper class for the HTTP request
+13. Improve the Shaking wrapper class for the HTTP request
