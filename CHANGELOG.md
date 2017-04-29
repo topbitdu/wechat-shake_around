@@ -37,7 +37,7 @@
 
 ## v0.9.1
 1. Improved the Ruby Gem Specification to depend on [wechat-core](https://github.com/topbitdu/wechat-core) v0.4
-2. Improve the Apply wrapper class for the argument validation & HTTP request
+2. Improved the Apply wrapper class for the argument validation & HTTP request
 3. Improve the Beacon wrapper class for the argument validation & HTTP request
 4. Improve the Beacon Page Relation wrapper class for the argument validation & HTTP request
 5. Improve the Beacon PoI Relation wrapper class for the argument validation & HTTP request
